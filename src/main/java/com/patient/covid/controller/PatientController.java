@@ -15,6 +15,7 @@ public class PatientController {
     private PatientDao patientDao;
 
     @GetMapping("/patients")
+    @ResponseBody
     public List<Patient> getAllPatient() {
         return patientDao.findAll();
     }

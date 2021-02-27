@@ -25,4 +25,8 @@ public class User {
     @Getter
     String password;
 
+    @Getter
+    @Setter
+    String role;
+
 }

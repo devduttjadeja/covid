@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table
@@ -23,6 +24,22 @@ public class Nurse {
 
     @Getter
     @Setter
+    Date dateOfBirth;
+
+    @Getter
+    @Setter
     String address;
+
+    @Setter
+    @Getter
+    String phone;
+
+    @Setter
+    @Getter
+    String email;
+
+    @Setter
+    @Getter
+    String nurseRegistrationNumber;
 
 }

@@ -7,36 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
-
 
 @Entity
 @Table
-public class Patient {
+public class PatientSelfAssesment {
 
     @Getter
     @Id
     @GeneratedValue
+    Long selfAssessmentID;
+
+    @Setter
+    @Getter
     Long patientID;
 
     @Getter
     @Setter
-    String patientName;
+    String difficultyInBreathing;
 
     @Getter
     @Setter
-    Date dateOfBirth;
+    String age;
 
     @Getter
     @Setter
-    String address;
-
-    @Setter
-    @Getter
-    String phone;
-
-    @Setter
-    @Getter
-    String email;
+    String symptoms;
+    // Fever, Sudden loss of sense of smell, Recent cough Sore throat, Runny nose or congestion
 
 }

@@ -9,19 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-
 @Entity
 @Table
-public class Patient {
+public class Doctor {
 
     @Getter
     @Id
     @GeneratedValue
-    Long patientID;
+    Long doctorID;
 
     @Getter
     @Setter
-    String patientName;
+    String doctorName;
 
     @Getter
     @Setter
@@ -38,5 +37,9 @@ public class Patient {
     @Setter
     @Getter
     String email;
+
+    @Setter
+    @Getter
+    String doctorRegistrationNumber;
 
 }
