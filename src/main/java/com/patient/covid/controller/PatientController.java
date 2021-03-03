@@ -26,8 +26,15 @@ public class PatientController {
     }
 
     @PostMapping(value = "/registerPatient")
-    public void addPatient(@RequestBody Patient patient) {
+    public String addPatient(@RequestParam("name") String name, @RequestParam("dob") String dob,
+                           @RequestParam("email") String email, @RequestParam("phone") String phone,
+                           @RequestParam("address") String address, @RequestParam("password") String password) {
+        Patient patient = new Patient();
+        patient.setPatientName(name);
+        patient.setEmail(email);
         patientDao.save(patient);
+
+        return "redirect:/index.html";
     }
 
     @DeleteMapping("/deletePatient/{patientID}")
