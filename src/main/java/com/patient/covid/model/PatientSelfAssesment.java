@@ -32,6 +32,5 @@ public class PatientSelfAssesment {
     @Getter
     @Setter
     String symptoms;
-    // Fever, Sudden loss of sense of smell, Recent cough Sore throat, Runny nose or congestion
 
 }

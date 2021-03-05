@@ -1,0 +1,138 @@
+.myrows{
+    border: 3px solid green;
+    padding: 5px;
+  }
+  .mycols{
+    border: 3px solid red;
+  }
+  .mycontainer{
+    background-color: aqua;
+  }
+  .container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  nav ul li a {
+   font-size: 1.1rem;
+   font-weight: 600;
+  }
+
+
+  /* footer */
+
+  .bottom-footer{
+    background-color: #2379c0;
+  }
+  .bottom-footer p{
+    color: white;
+  }
+  
+.pagefooter{
+  background-color: #6c7d8b;
+  position: fixed;
+  bottom: 0;
+  width: 100%; 
+}
+.top-footer p{
+  color: white;
+}
+.top-footer a{
+  color: white;
+  font-weight: 600;
+}
+.top-footer h3{
+  color: white;
+}
+
+.login-section{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: rgb(151, 223, 223);
+}
+
+.btn1{
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(132, 243, 210);
+  border-radius: 4px;
+  font-weight: bold;
+}
+.btn1:hover{
+  background-color: white;
+  border: 1px solid;
+  color: black;
+}
+
+/*-- resister--*/
+
+.register{
+  background-color: blanchedalmond;
+  margin-top: 2%;
+  padding: 5%;
+}
+
+.register-right{
+  background: #f8f9fa;
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
+
+.register .register-form{
+  padding: 5%;
+  margin-top: 5%;
+}
+
+.btnRegister{
+  float: right;
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background:rgb(240, 183, 99);
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+
+.register-staff{
+  background-color: rgb(168, 238, 141);
+  margin-top: 2%;
+  padding: 2%;
+}
+
+.register-staff-right{
+  background: #f8f9fa;
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
+
+.register-staff .register-form{
+  padding: 5%;
+  margin-top: 3%;
+}
+
+.btnRegister{
+  float: right;
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background:rgb(240, 183, 99);
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+
+
+.register-left{
+  text-align: center;
+  color: #fff;
+  margin-top: 4%;
+}
+
+
