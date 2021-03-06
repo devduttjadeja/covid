@@ -74,24 +74,25 @@
 				</div>
 				<div class="col-md-7 px-5 pt-5">
 					<h4>Sign into your account</h4>
-					<form>
+					
+					<form action="/login" method="post">
+						
 						<div class="form-row">
 							<div class="col-md-7">
 								<label for="Email">Email address</label>
-								<input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-									   placeholder="Enter email">
-							
+								<input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
 							</div>
 						</div>
+						
 						<div class="form-row">
 							<div class="col-md-7">
 								<label for="Password">Password</label>
-								<input type="password" class="form-control" id="password" placeholder="Password">
+								<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="col-md-7 pt-2">
-								<button type="button" class="btn1 mt-3 mb-5">Login</button>
+								<button type="submit" class="btn1 mt-3 mb-5">Login</button>
 							</div>
 						</div>
 						

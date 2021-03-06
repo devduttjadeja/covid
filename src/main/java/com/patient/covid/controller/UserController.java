@@ -18,17 +18,25 @@ public class UserController {
     private PatientDao patientDao;
 
     @PostMapping("/login")
-    public String login(@RequestParam("userName") String userName,
+    public String login(@RequestParam("email") String userName,
                         @RequestParam("password") String password) {
 
         User user = userDao.findByUserNameAndPassword(userName, password);
-
         if (user != null) {
-            return "redirect:/home.html";
+            String role = user.getRole();
+
+            if(role.equals("PATIENT")){
+                return "redirect:/.html";
+            }
+            if(role.equals("DOCTOR")){
+                return "redirect:/.html";
+            }
+            if(role.equals("NURSE")){
+                return "redirect:/.html";
+            }
         }
 
         return "redirect:/invalidLogin.html";
-
     }
 
 
