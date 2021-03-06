@@ -15,25 +15,29 @@ async function getapi(url) {
 function show(data) {
     let tab =
         `<tr>
-		<th>patientID</th>
-		<th>patientName</th>
-		<th>phone</th>
-		<th>address</th>
-		<th>dateOfBirth</th>
-		<th>email</th>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Phone</th>
+		<th>Address</th>
+		<th>Date Of Birth</th>
+		<th>Email</th>
 		</tr>`;
 
     // Loop to access all rows
-    for (let r of data) {
+    for (let patient of data) {
         tab += `<tr>
-	<td>${r.patientID} </td>
-	<td>${r.patientName}</td>
-	<td>${r.phone}</td>
-	<td>${r.address}</td>
-	<td>${r.dateOfBirth}</td>
-	<td>${r.email}</td>
+	<td>${patient.patientID} </td>
+	<td>${patient.patientName}</td>
+	<td>${patient.phone}</td>
+	<td>${patient.address}</td>
+	<td>${patient.dateOfBirth}</td>
+	<td>${patient.email}</td>
             </tr>`;
     }
     // Setting innerHTML as tab variable
     document.getElementById("patients").innerHTML = tab;
+}
+
+function myFunction() {
+  location.replace("URL to redirect")
 }
