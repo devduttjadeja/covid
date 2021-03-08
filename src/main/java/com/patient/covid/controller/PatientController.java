@@ -19,6 +19,8 @@ public class PatientController {
     private PatientDao patientDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private PatientSelfAssessmentDao patientSelfAssessmentDao;
 
     @GetMapping("/patients")
     @ResponseBody
@@ -50,6 +52,19 @@ public class PatientController {
         userDao.save(user);
 
         return "redirect:/index.html"; // redirect to home page of patient
+    }
+    
+    @PostMapping(value = "/self_assessmentform")
+    public void self_assessmentform(@RequestParam("q1") String q1, @RequestParam("q2") String q2,
+                                  @RequestParam("q3") String q3, @RequestParam("q4") String q4,
+                                  @RequestParam("q5") String q5) throws ParseException {
+        PatientSelfAssesment ans = new PatientSelfAssesment();
+        ans.setDifficultyInBreathing(q1);
+        ans.setAge(q2);
+        ans.setSymptoms(q3);
+        ans.setSymptoms2(q4);
+        ans.setSituation(q5);
+        patientSelfAssessmentDao.save(ans);
     }
 
     @DeleteMapping("/deletePatient/{patientID}")
