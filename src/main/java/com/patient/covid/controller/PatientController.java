@@ -1,8 +1,10 @@
 package com.patient.covid.controller;
 
 import com.patient.covid.dao.PatientDao;
+import com.patient.covid.dao.PatientSelfAssessmentDao;
 import com.patient.covid.dao.UserDao;
 import com.patient.covid.model.Patient;
+import com.patient.covid.model.PatientSelfAssesment;
 import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
