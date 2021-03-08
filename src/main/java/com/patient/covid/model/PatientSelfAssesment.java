@@ -33,4 +33,12 @@ public class PatientSelfAssesment {
     @Setter
     String symptoms;
 
+    @Getter
+    @Setter
+    String symptoms2;
+
+    @Getter
+    @Setter
+    String situation;
+
 }
