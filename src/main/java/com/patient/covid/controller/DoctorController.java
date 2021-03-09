@@ -3,7 +3,6 @@ package com.patient.covid.controller;
 import com.patient.covid.dao.DoctorDao;
 import com.patient.covid.dao.UserDao;
 import com.patient.covid.model.Doctor;
-import com.patient.covid.model.Patient;
 import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,10 +23,10 @@ public class DoctorController {
     private UserDao userdao;
 
     @PostMapping(value = "/registerDoctor")
-    public String addDoctor(@RequestParam("name") String name, @RequestParam("password") String password ,
+    public String addDoctor(@RequestParam("name") String name, @RequestParam("password") String password,
                             @RequestParam("confirmpassword") String confirmpassword, @RequestParam("dob") String dob,
-                             @RequestParam("email") String email, @RequestParam("Registration_num") String registration_num,
-                             @RequestParam("mobile") String mobile, @RequestParam("address") String address) throws ParseException {
+                            @RequestParam("email") String email, @RequestParam("Registration_num") String registration_num,
+                            @RequestParam("mobile") String mobile, @RequestParam("address") String address) throws ParseException {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = simpleDateFormat.parse(dob);
@@ -48,6 +47,6 @@ public class DoctorController {
         user.setRole("DOCTOR");
         userdao.save(user);
 
-        return "redirect:/index.html";
+        return "login";
     }
 }

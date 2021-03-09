@@ -31,7 +31,7 @@ public class PatientSelfAssesment {
 
     @Getter
     @Setter
-    String symptoms;
+    String symptoms1;
 
     @Getter
     @Setter

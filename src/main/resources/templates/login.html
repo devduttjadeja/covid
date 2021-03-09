@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
 	<!--Custom CSS -->
 	<link rel="stylesheet" href="css/style.css">
-	<title>News-Fight COVID</title>
+	<title>Login-Fight COVID</title>
 </head>
 
 <body>
@@ -25,24 +25,24 @@
 						class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse" id="navbarToggler">
 					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html"><i class="fas fa-home"></i>Home</a>
-						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="news.html">News</a>
+							<a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="aboutus.html">About us</a>
+							<a class="nav-link" href="/news">News</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/aboutus">About us</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
 							
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="user_reg.html">Patient registration</a>
+								<a class="dropdown-item" href="/user_reg">Patient registration</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="doctor_reg.html">Doctor registration</a>
+								<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="nurse_reg.html">Nurse registration</a>
+								<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
 							</div>
 						
 						</li>
@@ -52,10 +52,10 @@
 					<div class="collapse navbar-collapse">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
+								<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="admin.html"><i class="fas fa-user"></i>Admin</a>
+								<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
 							</li>
 						</ul>
 					</div>
@@ -68,43 +68,50 @@
 </header>
 <!-- End of Header-->
 
-
-<footer class="pagefooter">
-	<div class="container top-footer p-md-3 p-1">
-		<div class="row">
-			<div class="col-md-3 pl-4 pr-4">
-				<h5>Social Media</h5>
-				<a style="color:silver;" href="https://www.facebook.com/coronavirus_info/"><i
-						class="fab fa-2x fa-facebook-square"></i></a>
-				<a style="color: silver;" href="https://twitter.com/infocovid_19?lang=en"><i
-						class="fab fa-2x fa-twitter-square"></i></a>
-				<a style="color: silver;" href="https://www.instagram.com/cdcgov/?hl=en"><i
-						class="fab fa-2x fa-instagram"></i></a>
-			</div>
-			
-			<div class="col-md-3  pl-4 pr-4">
-				<h5>Important Links</h5>
-				<a href="#">Privacy Policy</a><br>
-				<a href="https://www.worldometers.info/coronavirus/">COVID cases across Globe </a><br>
-				<a href="https://santemontreal.qc.ca/en/public/coronavirus-covid-19/situation-of-the-coronavirus-covid-19-in-montreal/">Montreal
-					Active-cases </a><br>
-			</div>
-			
-			<div class="col-md-3  pl-4 pr-4">
-				<h5>Our Services</h5>
-				<a href="#">COVID Testing </a><br>
-				<a href="#">COVID Treatment</a><br>
-			</div>
-			
-			<div class="col-md-3  pl-4 pr-4">
-				<h5>Contact Us</h5>
-				<a href="#"><i class="fas fa-phone"></i> +1 438-622-1234 </a><br>
-				<a href="#"><i class="fas fa-envelope"></i> help@fightcovid.com </a><br>
-			
-			
+<section class="login-section my-4 mx-5">
+	<div class="form">
+		<div class="container-fluid">
+			<div class="row no-gutters">
+				<div class="col-md-5 px-5 pt-3">
+					<img src="images/login-img.jpg.crdownload" width="300" class="img-fluid" alt="">
+				</div>
+				<div class="col-md-7 px-5 pt-5">
+					<h4>Sign into your account</h4>
+					
+					<form action="/login" method="post">
+						
+						<div class="form-row">
+							<div class="col-md-7">
+								<label for="Email">Email address</label>
+								<input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+							</div>
+						</div>
+						
+						<div class="form-row">
+							<div class="col-md-7">
+								<label for="Password">Password</label>
+								<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-7 pt-2">
+								<button type="submit" class="btn1 mt-3 mb-5">Login</button>
+							</div>
+						</div>
+						
+						<a href="forgot.html">Forgot Password</a>
+						<p>Don't have an account? <a href="user_reg.html">Sign up here</a></p>
+					
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
+</section>
+
+
+<footer class="pagefooter">
+	
 	<div class="container-fluid bottom-footer pt-2">
 		<div class="row">
 			<div class="col-12 text-center">

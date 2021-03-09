@@ -8,7 +8,10 @@ import com.patient.covid.model.PatientSelfAssesment;
 import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -53,20 +56,22 @@ public class PatientController {
         user.setRole("PATIENT");
         userDao.save(user);
 
-        return "redirect:/index.html"; // redirect to home page of patient
+        return "login";
     }
-    
+
     @PostMapping(value = "/self_assessmentform")
-    public void self_assessmentform(@RequestParam("q1") String q1, @RequestParam("q2") String q2,
-                                  @RequestParam("q3") String q3, @RequestParam("q4") String q4,
-                                  @RequestParam("q5") String q5) throws ParseException {
-        PatientSelfAssesment ans = new PatientSelfAssesment();
-        ans.setDifficultyInBreathing(q1);
-        ans.setAge(q2);
-        ans.setSymptoms(q3);
-        ans.setSymptoms2(q4);
-        ans.setSituation(q5);
-        patientSelfAssessmentDao.save(ans);
+    public String self_assessmentform(@RequestParam("q1") String q1, @RequestParam("q2") String q2,
+                                      @RequestParam("q3") String q3, @RequestParam("q4") String q4,
+                                      @RequestParam("q5") String q5) {
+        PatientSelfAssesment patientSelfAssesment = new PatientSelfAssesment();
+        patientSelfAssesment.setDifficultyInBreathing(q1);
+        patientSelfAssesment.setAge(q2);
+        patientSelfAssesment.setSymptoms1(q3);
+        patientSelfAssesment.setSymptoms2(q4);
+        patientSelfAssesment.setSituation(q5);
+        patientSelfAssessmentDao.save(patientSelfAssesment);
+
+        return "user";
     }
 
     @DeleteMapping("/deletePatient/{patientID}")

@@ -49,7 +49,7 @@ public class NurseController {
         user.setPassword(password);
         user.setRole("NURSE");
         userDao.save(user);
-        return "redirect:/login.html";
+        return "login";
     }
 
     @DeleteMapping("/deleteNurse/{nurseID}")
