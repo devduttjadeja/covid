@@ -1,164 +1,118 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
-  <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
-  <!--Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <title>Nurse-Fight COVID</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
+	<link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
+	<!--Custom CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<title>Nurse-Fight COVID</title>
 </head>
 
 <body>
 <header>
-    
-    <div id="pageHeader">
-        <div class="container-fluid">
-            <nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
-                <a class="navbar-brand" href="">
-                    <img src="images/stopcovid.jpg" width="50px" alt="">
-                </a>
-                <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/news">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/aboutus">About us</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
-                            
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/user_reg">Patient registration</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
-                            </div>
-                        
-                        </li>
-                    
-                    </ul>
-                    
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        
-        </div>
-    </div>
+	
+	<div id="pageHeader">
+		<div class="container-fluid">
+			<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
+				<a class="navbar-brand" href="">
+					<img src="images/stopcovid.jpg" width="50px" alt="">
+				</a>
+				<button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span
+						class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse" id="navbarToggler">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/news">News</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/aboutus">About us</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
+							
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/user_reg">Patient registration</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
+							</div>
+						
+						</li>
+					
+					</ul>
+					
+					<div class="collapse navbar-collapse">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		
+		</div>
+	</div>
 
 </header>
 <!-- End of Header-->
 
 <section class="nurse-page my-4 mx-5">
-
-    <div class="container-fluid">
-        
-            <div class="row">
-                <div class="col-md-4 px-5 pt-3 nurse-page-right">
-                    <img src="images/user.png" width="150" class="img-fluid nurse-img" alt=""><br>
-                    <label for="Name">Name:</label><br>
-                    <label for="Email">Email:</label><br>
-                    <label for="Phone number">Mobile:</label><br>
-                    <label for="Registration number">Registration number:</label><br>
-                    <button class="usrbutton" id="patient">Patient List</button>
-                    <button class="usrbutton" id="Appointments">Appointments</button>
-                   
-                </div>
-                <div class="col-md-7 px-5 pt-5 list" id="list">
-
-                </div>
-
-                <script type="text/javaScript">
-                  document.getElementById('patient').addEventListener("click",getList); 
-                  
-                  function getList()
-                  {
-                     /*async function getapi(url){
-                           Storing response
-                          const response = await fetch(url);
-                          fetch('users.json').then((res)=>res.json())
-                          .then((data)=>{
-                            let tab =
-                                  `<tr>
-                                  <th>Name</th>
-                                  <th>Age</th>
-                                  <th>Gender</th>
-                                </tr>`
-                                  ;
-                              for (let r of data)
-                            {
-                                    tab += `<tr>
-                              <td>${r.name}</td>
-                              <td>${r.age}</td>
-                              <td>${r.Gender}</td>
-                                        </tr>`
-                                ;
-                            }
-                              console.log(tab);
-                            document.getElementById("list").innerHTML=tab;
-                          }  ) 
-
-                      }*/
-                      fetch('users.json').then((res)=>res.json())
-                      .then((data1)=>temp=data1)
-
-                      
-
-                      
-                 
-                  } 
-              </script>
-            </div>
-
-           
-        
-    </div>
+	
+	<div class="container-fluid">
+		
+		<div class="row">
+			<div class="col-md-4 px-5 pt-3 nurse-page-right">
+				<img src="images/user.png" width="150" class="img-fluid nurse-img" alt=""><br>
+				
+				<label>Registration number:</label>
+				<p id="nurseRegistrationNumber" th:text="${nurse.nurseRegistrationNumber}"></p>
+				<label>Name:</label>
+				<p id="nurseName" th:text="${nurse.nurseName}"></p>
+				<button class="usrbutton" id="patient">Patient List</button>
+				<button class="usrbutton" id="selfassessmentresult">Self Assessment Results</button>
+			
+			</div>
+			<div class="col-md-7 px-5 pt-5 list" id="list">
+			
+			</div>
+		</div>
+	
+	
+	</div>
 
 </section>
 
 
-
-
 <footer class="pagefooter">
-  <div class="container-fluid top-footer p-md-3 p-1"></div>
-  <div class="container-fluid bottom-footer pt-2">
-    <div class="row">
-      <div class="col-12 text-center">
-        <p>Copyrights © 2021 - All rights reserved</p>
-      </div>
-    </div>
-  </div>
+	<div class="container-fluid top-footer p-md-3 p-1"></div>
+	<div class="container-fluid bottom-footer pt-2">
+		<div class="row">
+			<div class="col-12 text-center">
+				<p>Copyrights © 2021 - All rights reserved</p>
+			</div>
+		</div>
+	</div>
 
 </footer>
 
 
-
-
-
-  <!-- JavaScript -->
-  <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-  <script src="bootstrap/js/popper.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- JavaScript -->
+<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+<script src="bootstrap/js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

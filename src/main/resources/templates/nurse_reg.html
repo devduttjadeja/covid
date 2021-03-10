@@ -78,50 +78,59 @@
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 					<h3 class="register-heading text-center">Nurse Registeration</h3>
-					<div class="row register-form">
-						
-						<div class="col-md-6">
+					<form action="/registerNurse" method="post">
+						<div class="row register-form">
 							
-							<div class="form-group">
-								<input type="text" class="form-control" name="name" placeholder="Full Name *" value=""/>
+							<div class="col-md-6">
+								
+								<div class="form-group">
+									<input type="text" class="form-control" name="name" placeholder="Full Name *"
+										   value=""/>
+								</div>
+								
+								<div class="form-group">
+									<input type="password" class="form-control" name="password" placeholder="Password *"
+										   value=""/>
+								</div>
+								
+								<div class="form-group">
+									<input type="password" class="form-control" name="confirmpassword"
+										   placeholder="Confirm Password *" value=""/>
+								</div>
+								
+								<div class="form-group">
+									<input type="date" class="form-control" name="dob" value=""/>
+								</div>
+							
 							</div>
 							
-							<div class="form-group">
-								<input type="password" class="form-control" name="password" placeholder="Password *" value=""/>
-							</div>
+							<div class="col-md-6">
+								
+								<div class="form-group">
+									<input type="email" class="form-control" name="email" placeholder="Your Email *"
+										   value=""/>
+								</div>
+								
+								<div class="form-group">
+									<input type="text" class="form-control" name="Registration_num"
+										   placeholder="Enter your registration num *" value=""/>
+								</div>
+								
+								<div class="form-group">
+									<input type="tel" class="form-control" name="mobile" placeholder="Mobile number"
+										   value=""/>
+								</div>
+								
+								<div class="form-group">
+									<input type="text" class="form-control" name="address" placeholder="Address"
+										   value=""/>
+								</div>
+								
+								<input type="submit" class="btnRegister" value="Register"/>
 							
-							<div class="form-group">
-								<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password *" value=""/>
 							</div>
-							
-							<div class="form-group">
-								<input type="date" class="form-control" name="dob" value=""/>
-							</div>
-							
 						</div>
-						
-						<div class="col-md-6">
-							
-							<div class="form-group">
-								<input type="email" class="form-control" name="email" placeholder="Your Email *" value=""/>
-							</div>
-							
-							<div class="form-group">
-								<input type="text" class="form-control" name="Registration_num" placeholder="Enter your registration num *" value=""/>
-							</div>
-							
-							<div class="form-group">
-								<input type="tel" class="form-control" name="mobile" placeholder="Mobile number" value=""/>
-							</div>
-							
-							<div class="form-group">
-								<input type="text" class="form-control" name="address" placeholder="Address" value=""/>
-							</div>
-							
-							<input type="submit" class="btnRegister" value="Register"/>
-							
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

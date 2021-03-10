@@ -1,13 +1,14 @@
 package com.patient.covid.controller;
 
+import com.patient.covid.dao.NurseDao;
 import com.patient.covid.dao.PatientDao;
 import com.patient.covid.dao.UserDao;
+import com.patient.covid.model.Nurse;
 import com.patient.covid.model.Patient;
 import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,13 +17,14 @@ public class UserController {
 
     @Autowired
     private UserDao userDao;
-
     @Autowired
     private PatientDao patientDao;
+    @Autowired
+    private NurseDao nurseDao;
 
     @PostMapping("/login")
     public String login(@RequestParam("email") String email,
-                        @RequestParam("password") String password, Model model) {
+                        @RequestParam("password") String password, ModelMap model) {
 
         User user = userDao.findByUserNameAndPassword(email, password);
 
@@ -36,15 +38,15 @@ public class UserController {
             }
             if (role.equals("DOCTOR")) {
 
-
             }
             if (role.equals("NURSE")) {
-
-
+                Nurse nurse = nurseDao.findByEmail(email);
+                model.addAttribute("nurse", nurse);
+                return "nurse";
             }
         }
 
-        return "invalidPage";
+        return null;
     }
 
 

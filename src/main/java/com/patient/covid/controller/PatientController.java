@@ -9,9 +9,7 @@ import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -62,16 +60,20 @@ public class PatientController {
     @PostMapping(value = "/self_assessmentform")
     public String self_assessmentform(@RequestParam("q1") String q1, @RequestParam("q2") String q2,
                                       @RequestParam("q3") String q3, @RequestParam("q4") String q4,
-                                      @RequestParam("q5") String q5) {
+                                      @RequestParam("q5") String q5, @RequestParam("patientID") String patientID,
+                                      Model model) {
         PatientSelfAssesment patientSelfAssesment = new PatientSelfAssesment();
         patientSelfAssesment.setDifficultyInBreathing(q1);
         patientSelfAssesment.setAge(q2);
         patientSelfAssesment.setSymptoms1(q3);
         patientSelfAssesment.setSymptoms2(q4);
         patientSelfAssesment.setSituation(q5);
+        patientSelfAssesment.setPatientID(Long.parseLong(patientID));
         patientSelfAssessmentDao.save(patientSelfAssesment);
 
-        return "user";
+        model.addAttribute("patient", patientDao.findById(Long.parseLong(patientID)).orElse(null));
+
+        return "user.html";
     }
 
     @DeleteMapping("/deletePatient/{patientID}")

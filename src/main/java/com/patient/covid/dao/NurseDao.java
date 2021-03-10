@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NurseDao extends JpaRepository<Nurse, Long> {
+    Nurse findByEmail(String email);
 }

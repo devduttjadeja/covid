@@ -16,6 +16,11 @@ public class RedirectionController {
         return "admin";
     }
 
+    @GetMapping("/user")
+    public String user() {
+        return "user";
+    }
+
     @GetMapping("/user_reg")
     public String user_reg() {
         return "user_reg";
@@ -44,5 +49,15 @@ public class RedirectionController {
     @GetMapping("/aboutus")
     public String aboutus() {
         return "aboutus";
+    }
+
+    @GetMapping("/self-assessment")
+    public String self_assessment() {
+        return "self-assessment";
+    }
+
+    @GetMapping("/appointments")
+    public String appointments() {
+        return "appointments";
     }
 }
