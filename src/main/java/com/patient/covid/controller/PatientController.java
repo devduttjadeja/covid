@@ -31,6 +31,12 @@ public class PatientController {
         return patientDao.findAll();
     }
 
+    @GetMapping("/selfassessments")
+    @ResponseBody
+    public List<PatientSelfAssesment> getSelfAssessmentResult() {
+        return patientSelfAssessmentDao.findAll();
+    }
+
     @GetMapping("/patients/{patientID}")
     public Patient getPatient(@PathVariable Long patientID) {
         return patientDao.findById(patientID).orElse(null);
@@ -54,7 +60,7 @@ public class PatientController {
         user.setRole("PATIENT");
         userDao.save(user);
 
-        return "login";
+        return "reg_success";
     }
 
     @PostMapping(value = "/self_assessmentform")

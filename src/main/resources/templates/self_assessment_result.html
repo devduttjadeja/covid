@@ -1,19 +1,20 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
 	<link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
 	<!--Custom CSS -->
 	<link rel="stylesheet" href="css/style.css">
-	<title>Doctor-Fight COVID</title>
+	<title>Home - Fight COVID</title>
 </head>
 
 <body>
+
+
 <header>
 	
 	<div id="pageHeader">
@@ -69,35 +70,15 @@
 </header>
 <!-- End of Header-->
 
-<section class="nurse-page my-4 mx-5">
-	
-	<div class="container-fluid">
-		
-		<div class="row">
-			<div class="col-md-4 px-5 pt-3 nurse-page-right">
-				<img src="images/user.png" width="150" class="img-fluid nurse-img" alt=""><br>
-				
-				<label>Registration number:</label>
-				<p id="doctorRegistrationNumber" th:text="${doctor.doctorRegistrationNumber}"></p>
-				<label>Name:</label>
-				<p id="doctorName" th:text="${doctor.doctorName}"></p>
-				<button onclick="location.href = '/patient_list';" class="usrbutton" id="patient">Patient List</button>
-				<button onclick="location.href = '/self_assessment_result';" class="usrbutton" id="selfassessmentresult">Self Assessment Results</button>
-			
-			</div>
-			<div class="col-md-7 px-5 pt-5 list" id="list">
-			
-			</div>
-		</div>
-	
-	
-	</div>
+<br>
+<h4>Self Assessment Results</h4>
 
-</section>
+<br>
+<table id="self_assessment_result" border="2" class="table table-striped table-primary"></table>
 
+<!-- Start of Footer-->
 
 <footer class="pagefooter">
-	<div class="container-fluid top-footer p-md-3 p-1"></div>
 	<div class="container-fluid bottom-footer pt-2">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -110,6 +91,51 @@
 
 
 <!-- JavaScript -->
+<script>
+
+	// show self assessment results
+	getapi('/selfassessments');
+
+	// Defining async function
+	async function getapi(url) {
+
+    // Storing response
+    const response = await fetch(url);
+
+    // Storing data in form of JSON
+    var data = await response.json();
+    console.log(data);
+    show(data);
+	}
+
+	// Function to define innerHTML for HTML table
+	function show(data) {
+    let tab =
+        `<tr>
+		<th>Patient ID</th>
+		<th>Difficulty In Breathing</th>
+		<th>Age Range</th>
+		<th>Experiencing Fever</th>
+		<th>Experiencing Nausea</th>
+		<th>Has Undergone Surgery</th>
+		</tr>`;
+
+    // Loop to access all rows
+    for (let selfassessment of data) {
+        tab += `<tr>
+	<td>${selfassessment.patientID} </td>
+	<td>${selfassessment.difficultyInBreathing}</td>
+	<td>${selfassessment.age}</td>
+	<td>${selfassessment.symptoms1}</td>
+	<td>${selfassessment.symptoms2}</td>
+	<td>${selfassessment.situation}</td>
+            </tr>`;
+    }
+    // Setting innerHTML as tab variable
+    document.getElementById("self_assessment_result").innerHTML = tab;
+}
+
+</script>
 <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
 <script src="bootstrap/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

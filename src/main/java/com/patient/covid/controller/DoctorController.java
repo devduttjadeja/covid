@@ -47,6 +47,6 @@ public class DoctorController {
         user.setRole("DOCTOR");
         userdao.save(user);
 
-        return "login";
+        return "reg_success";
     }
 }

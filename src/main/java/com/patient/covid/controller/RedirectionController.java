@@ -60,4 +60,15 @@ public class RedirectionController {
     public String appointments() {
         return "appointments";
     }
+
+    @GetMapping("/patient_list")
+    public String patient_list() {
+        return "patient_list";
+    }
+
+    @GetMapping("/self_assessment_result")
+    public String self_assessment_result() {
+        return "self_assessment_result";
+    }
+
 }

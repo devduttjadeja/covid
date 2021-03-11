@@ -81,8 +81,8 @@
 				<p id="nurseRegistrationNumber" th:text="${nurse.nurseRegistrationNumber}"></p>
 				<label>Name:</label>
 				<p id="nurseName" th:text="${nurse.nurseName}"></p>
-				<button class="usrbutton" id="patient">Patient List</button>
-				<button class="usrbutton" id="selfassessmentresult">Self Assessment Results</button>
+				<button onclick="location.href = '/patient_list';" class="usrbutton" id="patient">Patient List</button>
+				<button onclick="location.href = '/self_assessment_result';" class="usrbutton" id="selfassessmentresult">Self Assessment Results</button>
 			
 			</div>
 			<div class="col-md-7 px-5 pt-5 list" id="list">
