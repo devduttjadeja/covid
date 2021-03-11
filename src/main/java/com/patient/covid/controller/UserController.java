@@ -1,8 +1,10 @@
 package com.patient.covid.controller;
 
+import com.patient.covid.dao.DoctorDao;
 import com.patient.covid.dao.NurseDao;
 import com.patient.covid.dao.PatientDao;
 import com.patient.covid.dao.UserDao;
+import com.patient.covid.model.Doctor;
 import com.patient.covid.model.Nurse;
 import com.patient.covid.model.Patient;
 import com.patient.covid.model.User;
@@ -21,6 +23,8 @@ public class UserController {
     private PatientDao patientDao;
     @Autowired
     private NurseDao nurseDao;
+    @Autowired
+    private DoctorDao doctorDao;
 
     @PostMapping("/login")
     public String login(@RequestParam("email") String email,
@@ -37,7 +41,9 @@ public class UserController {
                 return "user";
             }
             if (role.equals("DOCTOR")) {
-
+                Doctor doctor = doctorDao.findByEmail(email);
+                model.addAttribute("doctor", doctor);
+                return "doctor";
             }
             if (role.equals("NURSE")) {
                 Nurse nurse = nurseDao.findByEmail(email);
@@ -46,7 +52,7 @@ public class UserController {
             }
         }
 
-        return null;
+        return "invalidlogin";
     }
 
 

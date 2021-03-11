@@ -73,7 +73,14 @@ public class PatientController {
 
         model.addAttribute("patient", patientDao.findById(Long.parseLong(patientID)).orElse(null));
 
-        return "user.html";
+        return "user";
+    }
+
+    @GetMapping("/user/{patientID}")
+    public String getPatient(@PathVariable Long patientID, Model model) {
+        Patient patient = patientDao.findById(patientID).orElse(null);
+        model.addAttribute("patient", patient);
+        return "user";
     }
 
     @DeleteMapping("/deletePatient/{patientID}")
