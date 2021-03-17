@@ -86,7 +86,17 @@
 				<label>ID: </label>
 				<p id="patientID" th:text="${patient.patientID}"></p>
 				<label>Name: </label>
-				<p id="patientName" th:text="${patient.patientName}"></p> <br>
+				<p id="patientName" th:text="${patient.patientName}"></p>
+				<label>Phone: </label>
+				<p id="phone" th:text="${patient.phone}"></p>
+				<label>Email: </label>
+				<p id="email" th:text="${patient.email}"></p>
+				<label>Date Of Birth: </label>
+				<p id="dateOfBirth" th:text="${patient.dateOfBirth}"></p>
+				<label>Address: </label>
+				<p id="address" th:text="${patient.address}"></p>
+				
+				
 				<button onclick="location.href = '/self-assessment';" class="usrbutton" id="Self-assessment">Self-assessment</button>
 				<button onclick="location.href = '/appointments';" class="usrbutton" id="Appointments">Appointments</button>
 			
@@ -121,8 +131,16 @@
 	document.getElementById("Self-assessment").addEventListener("click", function() {
 		var patientName = document.getElementById('patientName').innerHTML;
 		var patientID = document.getElementById('patientID').innerHTML;
+		var phone = document.getElementById('phone').innerHTML;
+		var email = document.getElementById('email').innerHTML;
+		var dateOfBirth = document.getElementById('dateOfBirth').innerHTML;
+		var address = document.getElementById('address').innerHTML;
         localStorage.setItem('patientName', patientName);
         localStorage.setItem('patientID', patientID);
+        localStorage.setItem('phone', phone);
+        localStorage.setItem('email', email);
+        localStorage.setItem('dateOfBirth', dateOfBirth);
+        localStorage.setItem('address', address);
 	});
 	
 
