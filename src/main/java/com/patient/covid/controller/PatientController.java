@@ -37,6 +37,13 @@ public class PatientController {
         return patientSelfAssessmentDao.findAll();
     }
 
+    @GetMapping("/selfassessments/{patientID}")
+    public String getSelfAssessmentResult(@PathVariable Long patientID, Model model) {
+        model.addAttribute("patient", patientDao.findById(patientID).orElse(null));
+        model.addAttribute("selfassessmentsOfPatient", patientSelfAssessmentDao.findByPatientID(patientID));
+        return "self_assessment_result";
+    }
+
     @GetMapping("/patients/{patientID}")
     public Patient getPatient(@PathVariable Long patientID) {
         return patientDao.findById(patientID).orElse(null);
