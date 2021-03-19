@@ -31,6 +31,13 @@ public class PatientController {
         return patientDao.findAll();
     }
 
+    @GetMapping("/removePatients")
+    @ResponseBody
+    public void removePatients(@RequestParam List<Long> patientIDList) {
+        for (long patient : patientIDList)
+            patientDao.deleteById(patient);
+    }
+
     @GetMapping("/selfassessments")
     @ResponseBody
     public List<PatientSelfAssesment> getSelfAssessmentResult() {
