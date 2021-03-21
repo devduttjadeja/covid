@@ -70,5 +70,20 @@ public class RedirectionController {
     public String self_assessment_result() {
         return "self_assessment_result";
     }
+    
+    @GetMapping("/delete_patient")
+    public String delete_patient() {
+        return "delete_patient";
+    }
+
+    @GetMapping("/delete_nurse")
+    public String delete_nurse() {
+        return "delete_nurse";
+    }
+
+    @GetMapping("/delete_doc")
+    public String delete_doc() {
+        return "delete_doc";
+    }
 
 }
