@@ -79,6 +79,12 @@
 
                 <table width="600px">
                     <tr>
+                        <td><label>Nurse ID:</label></td>
+                        <td><label id="nurseID" th:text="${nurse.nurseID}"></label>
+                        </td>
+                    </tr>
+
+                    <tr>
                         <td><label>Registration number:</label></td>
                         <td><label id="nurseRegistrationNumber" th:text="${nurse.nurseRegistrationNumber}"></label>
                         </td>
@@ -109,7 +115,7 @@
 
                 </table>
                 <button onclick="location.href = '/patient_list';" class="usrbutton" id="patient">Patient List</button>
-                <button onclick="location.href = '';" class="usrbutton" id="viewAppointments">View Appointments</button>
+                <button class="usrbutton" id="viewAppointments">View Appointments</button>
 
             </div>
             <div class="col-md-7 px-5 pt-5 list" id="list">
@@ -137,6 +143,18 @@
 
 
 <!-- JavaScript -->
+
+<script>
+
+    var nurseID = document.getElementById('nurseID').innerHTML;
+    localStorage.setItem('loggedInNurse', nurseID);
+
+    document.getElementById("viewAppointments").addEventListener("click", function () {
+        window.location.replace("/viewAppointments/nurse/"+nurseID);
+    })
+
+</script>
+
 <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
 <script src="bootstrap/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
