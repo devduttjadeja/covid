@@ -56,4 +56,17 @@ public class NurseController {
     public void deleteNurse(@PathVariable Long nurseID) {
         nurseDao.deleteById(nurseID);
     }
+    
+    @GetMapping("/removeNurses")
+    @ResponseBody
+    public void removeNurses(@RequestParam List<Long> nurseIDList) {
+        for (long nurse : nurseIDList)
+            nurseDao.deleteById(nurse);
+    }
+    
+    @GetMapping("/nurses")
+    @ResponseBody
+    public List<Nurse> getAllNurse() {
+        return nurseDao.findAll();
+    }
 }
