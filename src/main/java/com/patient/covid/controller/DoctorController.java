@@ -49,4 +49,17 @@ public class DoctorController {
 
         return "reg_success";
     }
+    
+    @GetMapping("/removeDoctors")
+    @ResponseBody
+    public void removeDoctors(@RequestParam List<Long> doctorIDList) {
+        for (long doctor : doctorIDList)
+            doctorDao.deleteById(doctor);
+    }
+    
+    @GetMapping("/doctors")
+    @ResponseBody
+    public List<Doctor> getAllDoctor() {
+        return doctorDao.findAll();
+    }
 }
