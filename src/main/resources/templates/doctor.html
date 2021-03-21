@@ -78,6 +78,11 @@
                 <img src="images/user.png" width="150" class="img-fluid nurse-img" alt=""><br>
                 <table width="600px">
                     <tr>
+                        <td><label>Doctor ID:</label></td>
+                        <td><label id="doctorID" th:text="${doctor.doctorID}"></label>
+                        </td>
+                    </tr>
+                    <tr>
                         <td><label>Registration number:</label></td>
                         <td><label id="doctorRegistrationNumber" th:text="${doctor.doctorRegistrationNumber}"></label>
                         </td>
@@ -108,7 +113,7 @@
 
                 </table>
                 <button onclick="location.href = '/patient_list';" class="usrbutton" id="patient">Patient List</button>
-                <button onclick="location.href = '/viewAppointments/5';" class="usrbutton" id="viewAppointments">View Appointments</button>
+                <button class="usrbutton" id="viewAppointments">View Appointments</button>
 
             </div>
             <div class="col-md-7 px-5 pt-5 list" id="list">
@@ -136,6 +141,16 @@
 
 
 <!-- JavaScript -->
+<script>
+
+    var doctorID = document.getElementById('doctorID').innerHTML;
+    localStorage.setItem('loggedInDoctor', doctorID);
+    
+    document.getElementById("viewAppointments").addEventListener("click", function () {
+        window.location.replace("/viewAppointments/"+doctorID);
+    })
+    
+</script>
 <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
 <script src="bootstrap/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
