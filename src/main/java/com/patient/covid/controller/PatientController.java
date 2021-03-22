@@ -80,7 +80,8 @@ public class PatientController {
     @PostMapping(value = "/self_assessmentform")
     public String self_assessmentform(@RequestParam("q1") String q1, @RequestParam("q2") String q2,
                                       @RequestParam("q3") String q3, @RequestParam("q4") String q4,
-                                      @RequestParam("q5") String q5, @RequestParam("patientID") String patientID,
+                                      @RequestParam("q5") String q5, @RequestParam("q6") String q6,
+                                      @RequestParam("q7") String q7, @RequestParam("q8") String q8, @RequestParam("patientID") String patientID,
                                       Model model) {
         PatientSelfAssesment patientSelfAssesment = new PatientSelfAssesment();
         patientSelfAssesment.setDifficultyInBreathing(q1);
