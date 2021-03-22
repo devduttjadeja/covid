@@ -50,6 +50,10 @@ public class UserController {
                 model.addAttribute("nurse", nurse);
                 return "nurse";
             }
+            if (role.equals("ADMIN")) {
+                return "admin";
+            }
+
         }
 
         return "invalidlogin";
