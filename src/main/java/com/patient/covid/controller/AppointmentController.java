@@ -1,8 +1,6 @@
 package com.patient.covid.controller;
 
-import com.patient.covid.dao.AppointmentDao;
-import com.patient.covid.dao.DoctorDao;
-import com.patient.covid.dao.NurseDao;
+import com.patient.covid.dao.*;
 import com.patient.covid.model.Appointment;
 import com.patient.covid.model.Doctor;
 import com.patient.covid.model.Nurse;
@@ -19,12 +17,14 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentDao appointmentDao;
-
     @Autowired
     private DoctorDao doctorDao;
-
     @Autowired
     private NurseDao nurseDao;
+    @Autowired
+    PatientDao patientDao;
+    @Autowired
+    PatientSelfAssessmentDao patientSelfAssessmentDao;
 
     @GetMapping("/viewAppointments/doctor/{doctorID}")
     public  String doctor_handle(@PathVariable Long doctorID, Model model){
@@ -57,5 +57,15 @@ public class AppointmentController {
 
         return "appointment_list";
     }
+
+    @GetMapping("/self_assesment_doctor/{patientID}")
+    public String show_self_assements_resutls_doctor(@PathVariable Long patientID, Model model){
+
+        model.addAttribute("patient", patientDao.findById(patientID).orElse(null));
+        model.addAttribute("selfassessmentsOfPatient", patientSelfAssessmentDao.findByPatientID(patientID));
+
+        return "self_assesment_doctor_results";
+    }
+
 
 }
