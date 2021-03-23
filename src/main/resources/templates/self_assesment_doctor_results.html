@@ -216,6 +216,9 @@ Self Assessment Results for <label th:text="${patient.patientName}"></label> <br
 		<th>Experiencing Fever</th>
 		<th>Experiencing Nausea</th>
 		<th>Has Undergone Surgery</th>
+		<th>In Close Contact with COVID-19</th>
+		<th>Tested for COVID-19</th>
+		<th>Travelled outside of Canada</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -226,6 +229,9 @@ Self Assessment Results for <label th:text="${patient.patientName}"></label> <br
 		<td th:text="${item.symptoms1}"></td>
 		<td th:text="${item.symptoms2}"></td>
 		<td th:text="${item.situation}"></td>
+		<td th:text="${item.closeContact}"></td>
+		<td th:text="${item.tested}"></td>
+		<td th:text="${item.travel}"></td>
 	</tr>
 	</tbody>
 </table>
