@@ -41,4 +41,16 @@ public class PatientSelfAssesment {
     @Setter
     String situation;
 
+    @Setter
+    @Getter
+    String closeContact;
+
+    @Setter
+    @Getter
+    String tested;
+
+    @Setter
+    @Getter
+    String travel;
+
 }
