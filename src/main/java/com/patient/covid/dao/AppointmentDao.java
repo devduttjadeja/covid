@@ -12,4 +12,6 @@ public interface AppointmentDao extends JpaRepository<Appointment, Long> {
     List<Appointment> findByDoctorID(Long doctorID);
 
     List<Appointment> findByNurseID(Long nurseID);
+
+    void deleteByPatientID(Long patientID);
 }
