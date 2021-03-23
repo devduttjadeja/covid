@@ -7,6 +7,7 @@ import com.patient.covid.model.Nurse;
 import com.patient.covid.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -79,14 +80,23 @@ public class AppointmentController {
         return "self_assessment_result";
     }
 
-    @GetMapping("/reject_patient/{patientID}")
-    public String doctor_reject_patient(@PathVariable Long patientID, Model model) {
+    @Transactional
+    @GetMapping("/reject_patient/{patientID}/{doctorID}")
+    public String doctor_reject_patient(@PathVariable Long patientID,@PathVariable Long doctorID, Model model) {
 
         appointmentDao.deleteByPatientID(patientID);
         model.addAttribute("patient", patientDao.findById(patientID).orElse(null));
         model.addAttribute("selfassessmentsOfPatient", patientSelfAssessmentDao.findByPatientID(patientID));
 
-        return "self_assessment_result";
+        Doctor doctor = doctorDao.findById(doctorID).orElse(null);
+
+        List<Appointment> appointmentList = appointmentDao.findByDoctorID(doctorID);
+
+        model.addAttribute("appointmentList", appointmentList);
+        model.addAttribute("name", doctor.getDoctorName());
+        model.addAttribute("doctor", doctor);
+
+        return "appointment_list_doctor";
     }
 
 
