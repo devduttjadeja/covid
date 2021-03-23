@@ -89,6 +89,9 @@ public class PatientController {
         patientSelfAssesment.setSymptoms1(q3);
         patientSelfAssesment.setSymptoms2(q4);
         patientSelfAssesment.setSituation(q5);
+        patientSelfAssesment.setCloseContact(q6);
+        patientSelfAssesment.setTested(q7);
+        patientSelfAssesment.setTravel(q8);
         patientSelfAssesment.setPatientID(Long.parseLong(patientID));
         patientSelfAssessmentDao.save(patientSelfAssesment);
 
