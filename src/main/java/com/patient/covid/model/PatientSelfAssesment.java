@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table
@@ -52,5 +53,13 @@ public class PatientSelfAssesment {
     @Setter
     @Getter
     String travel;
+
+    @Getter
+    @Setter
+    String assessmentDate;
+
+    @Getter
+    @Setter
+    Date date;
 
 }

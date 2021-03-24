@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -93,6 +94,8 @@ public class PatientController {
         patientSelfAssesment.setTested(q7);
         patientSelfAssesment.setTravel(q8);
         patientSelfAssesment.setPatientID(Long.parseLong(patientID));
+        patientSelfAssesment.setDate(new Date());
+        patientSelfAssesment.setAssessmentDate(new Date().toString().substring(0,10).trim()+" 2021");
         patientSelfAssessmentDao.save(patientSelfAssesment);
 
         model.addAttribute("patient", patientDao.findById(Long.parseLong(patientID)).orElse(null));

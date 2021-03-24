@@ -202,25 +202,25 @@
 
 <br>
 Self Assessment Results for <label th:text="${patient.patientName}"></label> <br>
-
+Patient Id : <label th:text="${patient.patientID}"></label> <br>
 <br>
 <table id="self_assessment_result" class="table table-striped table-primary">
 	<thead>
 	<tr>
-		<th>Patient ID</th>
+		<th>Assessment Date</th>
 		<th>Difficulty In Breathing</th>
 		<th>Age Range</th>
 		<th>Experiencing Fever</th>
 		<th>Experiencing Nausea</th>
 		<th>Has Undergone Surgery</th>
-		<th>In Close Contact with COVID-19</th>
-		<th>Tested for COVID-19</th>
+		<th>Contact with COVID-19</th>
+		<th>Tested</th>
 		<th>Travelled outside of Canada</th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr th:each="item : ${selfassessmentsOfPatient}">
-		<td th:text="${item.patientID}"></td>
+		<td th:text="${item.assessmentDate}"></td>
 		<td th:text="${item.difficultyInBreathing}"></td>
 		<td th:text="${item.age}"></td>
 		<td th:text="${item.symptoms1}"></td>
