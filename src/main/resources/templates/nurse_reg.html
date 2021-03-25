@@ -13,148 +13,156 @@
 </head>
 
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
-<header>
-	
-	<div id="pageHeader">
-		<div class="container-fluid">
-			<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
-				<a class="navbar-brand" href="">
-					<img src="images/stopcovid.jpg" width="50px" alt="">
-				</a>
-				<button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span
-						class="navbar-toggler-icon"></span></button>
-				<div class="collapse navbar-collapse" id="navbarToggler">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/news">News</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/aboutus">About us</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
-							
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/user_reg">Patient registration</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
-							</div>
-						
-						</li>
-					
-					</ul>
-					
-					<div class="navbar-collapse">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item">
-								<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+	<header>
+
+		<div id="pageHeader">
+			<div class="container-fluid">
+				<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
+					<a class="navbar-brand" href="">
+						<img src="images/stopcovid.jpg" width="50px" alt="">
+					</a>
+					<button data-toggle="collapse" data-target="#navbarToggler" type="button"
+						class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+					<div class="collapse navbar-collapse" id="navbarToggler">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+								<a class="nav-link" href="/news">News</a>
 							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/aboutus">About us</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									href="#">Registration</a>
+
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/user_reg">Patient registration</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
+								</div>
+
+							</li>
+
 						</ul>
+
+						<div class="navbar-collapse">
+							<ul class="navbar-nav ml-auto">
+								<li class="nav-item">
+									<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+			</div>
+		</div>
+
+	</header>
+	<!-- End of Header-->
+
+
+	<div class="container-fluid register-staff" style="flex: 1;">
+		<div class="row">
+			<div class="col-md-3 register-left" style="margin-top: 2%;">
+				<table style="height: 100%;">
+					<tbody>
+						<tr>
+							<td class="align-middle"><img src="images/hospital_staff.jpg" width="100%"
+									alt="hospital staff img"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-9 register-right" style="margin-top: 2%;">
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<h3 class="register-heading text-center">Nurse Registeration</h3>
+						<form action="/registerNurse" method="post">
+							<div class="row register-form">
+
+								<div class="col-md-6">
+
+									<div class="form-group">
+										<input type="text" class="form-control" name="name" placeholder="Full Name *"
+											value="" />
+									</div>
+
+									<div class="form-group">
+										<input type="password" class="form-control" name="password"
+											placeholder="Password *" value="" />
+									</div>
+
+									<div class="form-group">
+										<input type="password" class="form-control" name="confirmpassword"
+											placeholder="Confirm Password *" value="" />
+									</div>
+
+									<div class="form-group">
+										<input type="date" class="form-control" name="dob" value="" />
+									</div>
+
+								</div>
+
+								<div class="col-md-6">
+
+									<div class="form-group">
+										<input type="email" class="form-control" name="email" placeholder="Your Email *"
+											value="" />
+									</div>
+
+									<div class="form-group">
+										<input type="text" class="form-control" name="Registration_num"
+											placeholder="Enter your registration num *" value="" />
+									</div>
+
+									<div class="form-group">
+										<input type="tel" class="form-control" name="mobile" placeholder="Mobile number"
+											value="" />
+									</div>
+
+									<div class="form-group">
+										<input type="text" class="form-control" name="address" placeholder="Address"
+											value="" />
+									</div>
+
+									<input type="submit" class="btnRegister" value="Register" />
+
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
-			</nav>
-		
+			</div>
 		</div>
 	</div>
 
-</header>
-<!-- End of Header-->
 
+	<footer>
 
-<div class="container-fluid register-staff" style="flex: 1;">
-	<div class="row">
-		<div class="col-md-3 register-left">
-			<img src="images/hospital_staff.jpg" width="250" alt="hospital staff img">
-		</div>
-		<div class="col-md-9 register-right">
-			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<h3 class="register-heading text-center">Nurse Registeration</h3>
-					<form action="/registerNurse" method="post">
-						<div class="row register-form">
-							
-							<div class="col-md-6">
-								
-								<div class="form-group">
-									<input type="text" class="form-control" name="name" placeholder="Full Name *"
-										   value=""/>
-								</div>
-								
-								<div class="form-group">
-									<input type="password" class="form-control" name="password" placeholder="Password *"
-										   value=""/>
-								</div>
-								
-								<div class="form-group">
-									<input type="password" class="form-control" name="confirmpassword"
-										   placeholder="Confirm Password *" value=""/>
-								</div>
-								
-								<div class="form-group">
-									<input type="date" class="form-control" name="dob" value=""/>
-								</div>
-							
-							</div>
-							
-							<div class="col-md-6">
-								
-								<div class="form-group">
-									<input type="email" class="form-control" name="email" placeholder="Your Email *"
-										   value=""/>
-								</div>
-								
-								<div class="form-group">
-									<input type="text" class="form-control" name="Registration_num"
-										   placeholder="Enter your registration num *" value=""/>
-								</div>
-								
-								<div class="form-group">
-									<input type="tel" class="form-control" name="mobile" placeholder="Mobile number"
-										   value=""/>
-								</div>
-								
-								<div class="form-group">
-									<input type="text" class="form-control" name="address" placeholder="Address"
-										   value=""/>
-								</div>
-								
-								<input type="submit" class="btnRegister" value="Register"/>
-							
-							</div>
-						</div>
-					</form>
+		<div class="container-fluid bottom-footer pt-2">
+			<div class="row">
+				<div class="col-12 text-center">
+					<p>Copyrights © 2021 - All rights reserved</p>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+
+	</footer>
 
 
-<footer>
-	
-	<div class="container-fluid bottom-footer pt-2">
-		<div class="row">
-			<div class="col-12 text-center">
-				<p>Copyrights © 2021 - All rights reserved</p>
-			</div>
-		</div>
-	</div>
-
-</footer>
-
-
-<!-- JavaScript -->
-<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-<script src="bootstrap/js/popper.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- JavaScript -->
+	<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="bootstrap/js/popper.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -95,7 +95,7 @@ public class PatientController {
         patientSelfAssesment.setTravel(q8);
         patientSelfAssesment.setPatientID(Long.parseLong(patientID));
         patientSelfAssesment.setDate(new Date());
-        patientSelfAssesment.setAssessmentDate(new Date().toString().substring(0,10).trim()+" 2021");
+        patientSelfAssesment.setAssessmentDate(new Date().toString().substring(0, 10).trim() + " 2021");    
         patientSelfAssessmentDao.save(patientSelfAssesment);
 
         model.addAttribute("patient", patientDao.findById(Long.parseLong(patientID)).orElse(null));

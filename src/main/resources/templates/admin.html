@@ -13,129 +13,138 @@
 </head>
 
 <body>
-<header>
+    <header>
 
-    <div id="pageHeader">
-        <div class="container-fluid">
-            <nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
-                <a class="navbar-brand" href="">
-                    <img src="images/stopcovid.jpg" width="50px" alt="">
-                </a>
-                <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html"><i class="fas fa-home"></i>Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="news.html">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutus.html">About us</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="user_reg.html">User registration</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="staff_reg.html">Staff registration</a>
-                            </div>
-
-                        </li>
-
-                    </ul>
-
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
-                            </li>
+        <div id="pageHeader">
+            <div class="container-fluid">
+                <nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
+                    <a class="navbar-brand" href="">
+                        <img src="images/stopcovid.jpg" width="50px" alt="">
+                    </a>
+                    <button data-toggle="collapse" data-target="#navbarToggler" type="button"
+                        class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarToggler">
+                        <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="admin.html"><i class="fas fa-user"></i>Admin</a>
+                                <a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/news">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/aboutus">About us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                    href="#">Registration</a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/user_reg">Patient registration</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
+                                </div>
+
+                            </li>
+
                         </ul>
+
+                        <div class="navbar-collapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-
-        </div>
-    </div>
-
-</header>
-<!-- End of Header-->
-
-<section class="admin-page my-4 mx-5">
-
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-md-4 px-5 pt-3 doctor-page-right">
-                <img src="images/user.png" width="150" class="img-fluid" alt=""><br>
-                <label for="Name">Name:</label><br>
-                <label for="Email">Email:</label><br>
-                <label for="Phone number">Mobile:</label><br>
-                <button class="usrbutton" id="Patient-list">Patient-list</button>
-                <button class="usrbutton" id="Appointments">Appointments</button>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle usrbutton" type="button" id="dropdownMenuAddButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Add
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Add">
-                        <a class="dropdown-item" href="/user_reg">Patient</a>
-                        <a class="dropdown-item" href="/nurse_reg">Nurse</a>
-                        <a class="dropdown-item" href="/doctor_reg">Doctor</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle usrbutton" type="button" id="dropdownMenuRemoveButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Remove
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Add">
-                        <a class="dropdown-item" href="/delete_patient">Patient</a>
-                        <a class="dropdown-item" href="/delete_nurse">Nurse</a>
-                        <a class="dropdown-item" href="/delete_doc">Doctor</a>
-                    </div>
-                </div>
+                </nav>
 
             </div>
-            <div class="col-md-8 px-5 pt-5 list" id="list">
-
-            </div>
-
-            <script>
-                  document.getElementById('Appointments').addEventListener("click",getText);
-
-                  function getText(){
-                    fetch('test.txt').then((res)=>res.text())
-                    .then((data)=>{
-                        document.getElementById('list').innerHTML=data;
-                    }  )
-                  }
-              </script>
         </div>
 
+    </header>
+    <!-- End of Header-->
+
+    <section class="admin-page my-4 mx-5">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-4 px-5 pt-3 doctor-page-right">
+                    <img src="images/user.png" width="150" class="img-fluid" alt=""><br>
+                    <label for="Name">Name:</label><br>
+                    <label for="Email">Email:</label><br>
+                    <label for="Phone number">Mobile:</label><br>
+                    <button class="usrbutton" id="Patient-list">Patient-list</button>
+                    <button class="usrbutton" id="Appointments">Appointments</button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle usrbutton" type="button"
+                            id="dropdownMenuAddButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Add
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="Add">
+                            <a class="dropdown-item" href="/user_reg">Patient</a>
+                            <a class="dropdown-item" href="/nurse_reg">Nurse</a>
+                            <a class="dropdown-item" href="/doctor_reg">Doctor</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle usrbutton" type="button"
+                            id="dropdownMenuRemoveButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Remove
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="Add">
+                            <a class="dropdown-item" href="/delete_patient">Patient</a>
+                            <a class="dropdown-item" href="/delete_nurse">Nurse</a>
+                            <a class="dropdown-item" href="/delete_doc">Doctor</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-8 px-5 pt-5 list" id="list">
+
+                </div>
+
+                <script>
+                    document.getElementById('Appointments').addEventListener("click", getText);
+
+                    function getText() {
+                        fetch('test.txt').then((res) => res.text())
+                            .then((data) => {
+                                document.getElementById('list').innerHTML = data;
+                            })
+                    }
+                </script>
+            </div>
 
 
 
-    </div>
 
-</section>
+        </div>
 
-<footer class="pagefooter">
-    <div class="container-fluid bottom-footer pt-2">
-        <div class="row">
-            <div class="col-12 text-center">
-                <p>Copyrights © 2021 - All rights reserved</p>
+    </section>
+
+    <footer class="pagefooter">
+        <div class="container-fluid bottom-footer pt-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Copyrights © 2021 - All rights reserved</p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- JavaScript -->
-<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-<script src="bootstrap/js/popper.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- JavaScript -->
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
