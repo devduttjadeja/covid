@@ -86,4 +86,10 @@ public class RedirectionController {
         return "delete_doc";
     }
 
+    @GetMapping("/patient_list_nurse")
+    public String patient_list_nurse() {
+        return "patient_list_nurse";
+    }
+
+
 }
