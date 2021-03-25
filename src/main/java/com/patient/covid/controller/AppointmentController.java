@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -71,14 +73,6 @@ public class AppointmentController {
         return "self_assesment_doctor_results";
     }
 
-    @GetMapping("/self_assesment_nurse/{patientID}")
-    public String show_self_assements_resutls_nurse(@PathVariable Long patientID, Model model) {
-
-        model.addAttribute("patient", patientDao.findById(patientID).orElse(null));
-        model.addAttribute("selfassessmentsOfPatient", patientSelfAssessmentDao.findByPatientID(patientID));
-
-        return "self_assessment_result";
-    }
 
     @Transactional
     @GetMapping("/reject_patient/{patientID}/{doctorID}")
@@ -116,6 +110,31 @@ public class AppointmentController {
         model.addAttribute("appointments", appointments);
 
         return "view_appointment_patient";
+    }
+
+
+    @GetMapping("/confirm_patient/{patientID}/{nurseID}")
+    public  String confirm_appointment_nurse(@PathVariable Long patientID, Long nurseID ){
+
+        Appointment appointment = new Appointment();
+
+        Patient patient = patientDao.findById(patientID).orElse(null);
+
+        Nurse nurse = nurseDao.findById(nurseID).orElse(null);
+        appointment.setPatientID(patientID);
+        appointment.setPatientID(nurseID);
+        appointment.setPatientName(patient.getPatientName());
+        appointment.setNurseName(nurse.getNurseName());
+        appointment.setConfirmed("Confirmed");
+
+        Calendar calender = Calendar.getInstance();
+        calender.setTime(new Date());
+        calender.add(Calendar.WEEK_OF_MONTH,1);
+        appointment.setAppointmentDate(calender.getTime());
+
+        appointment.setNotes("THe patient has appointment on "+ calender.getTime()+". Please wear a mask.");
+
+        return null;
     }
 
 }
