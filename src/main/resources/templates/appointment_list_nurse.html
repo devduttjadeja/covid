@@ -214,7 +214,7 @@
 Appointments for <label th:text="${name}"></label> <br>
 
 <br>
-<table id="appointments" class="center table-striped" width="1000px">
+<table id="appointments_nurse" class="table table-striped table-primary" width="1000px">
 	<thead>
 	<tr>
 		<th>Appointment ID</th>
@@ -226,8 +226,7 @@ Appointments for <label th:text="${name}"></label> <br>
 	<tbody>
 	<tr th:each="item : ${appointmentList}">
 		<td th:text="${item.appointmentId}"></td>
-		<td><a th:href="@{/self_assesment_nurse/{id}(id=${item.patientID})}" th:text="${item.patientName}"></a></td>
-		<td th:text="${item.patientName}"></td>
+		<td><a th:href="@{/selfassessments_nurse/{id}(id=${item.patientID})}" th:text="${item.patientName}"></a></td>
 		<td th:text="${item.appointmentDate}"></td>
 		<td th:text="${item.notes}"></td>
 	</tr>

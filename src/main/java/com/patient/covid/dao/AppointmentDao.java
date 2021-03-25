@@ -13,7 +13,8 @@ public interface AppointmentDao extends JpaRepository<Appointment, Long> {
 
     List<Appointment> findByDoctorID(Long doctorID);
 
-    List<Appointment> findByNurseID(Long nurseID);
+    @Query("select ap from Appointment ap where ap.nurseID = ?1 and ap.confirmed = ?2")
+    List<Appointment> findByNurseID(Long nurseID, String status);
 
     List<Appointment> findByPatientID(Long patientID);
 

@@ -205,21 +205,22 @@ Patient Id : <label th:text="${patient.patientID}"></label> <br> <br>
 	<thead>
 	<tr>
 		<th>Appointment ID</th>
+		<th>Status</th>
 		<th>Appointment Date</th>
 		<th>Doctor Name</th>
 		<th>Nurse Name</th>
 		<th>Notes by Nurse</th>
-		<th>Confirmed</th>
+		
 	</tr>
 	</thead>
 	<tbody>
 	<tr th:each="item : ${appointments}">
 		<td th:text="${item.appointmentId}"></td>
+		<td th:text="${item.confirmed}"></td>
 		<td th:text="${item.appointmentDate}"></td>
 		<td th:text="${item.doctorName}"></td>
 		<td th:text="${item.nurseName}"></td>
 		<td th:text="${item.notes}"></td>
-		<td th:text="${item.confirmed}"></td>
 	</tr>
 	</tbody>
 </table>
