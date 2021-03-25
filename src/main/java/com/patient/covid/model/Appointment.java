@@ -34,7 +34,15 @@ public class Appointment {
 
     @Getter
     @Setter
+    String doctorName;
+
+    @Getter
+    @Setter
     Long nurseID;
+
+    @Getter
+    @Setter
+    String nurseName;
 
     @Getter
     @Setter
@@ -44,5 +52,8 @@ public class Appointment {
     @Setter
     String notes;
 
+    @Getter
+    @Setter
+    String confirmed;
 
 }

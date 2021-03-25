@@ -232,18 +232,14 @@
                 </table>
 
                         <td>
-                            <button onclick="location.href = '/self-assessment';" class="usrbutton"
-                                    id="Self-assessment">Self-assessment
-                            </button>
+                            <button onclick="location.href = '/self-assessment';" class="usrbutton" id="Self-assessment">Self-assessment</button>
                         </td>
 
                         <td>
-                            <button onclick="location.href = '/appointments';" class="usrbutton" id="Appointments">
-                                Appointments
-                            </button>
+                            <button onclick="location.href = '/view_appointment_patient';" class="usrbutton" id="view_appointment_patient">Appointments</button>
                         </td>
-
-
+                
+                
             </div>
             <div class="col-md-8 px-5 pt-5 list" id="list">
 
@@ -271,6 +267,12 @@
 
 <!-- JavaScript -->
 <script>
+
+    document.getElementById("view_appointment_patient").addEventListener("click", function () {
+        var patientID = document.getElementById('patientID').innerHTML;
+        window.location.href = "/view_appointment_patient/"+patientID;
+    })
+    
 	document.getElementById("Self-assessment").addEventListener("click", function() {
 		var patientName = document.getElementById('patientName').innerHTML;
 		var patientID = document.getElementById('patientID').innerHTML;

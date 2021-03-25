@@ -64,9 +64,9 @@ public class AppointmentController {
     public String show_self_assements_resutls_doctor(@PathVariable Long patientID, Model model) {
 
         Patient patient = patientDao.findById(patientID).orElse(null);
-        model.addAttribute("patient",patient) ;
+        model.addAttribute("patient", patient);
         model.addAttribute("selfassessmentsOfPatient", patientSelfAssessmentDao.findByPatientID(patientID));
-        model.addAttribute("name",patient.getPatientName());
+        model.addAttribute("name", patient.getPatientName());
 
         return "self_assesment_doctor_results";
     }
@@ -82,7 +82,7 @@ public class AppointmentController {
 
     @Transactional
     @GetMapping("/reject_patient/{patientID}/{doctorID}")
-    public String doctor_reject_patient(@PathVariable Long patientID,@PathVariable Long doctorID, Model model) {
+    public String doctor_reject_patient(@PathVariable Long patientID, @PathVariable Long doctorID, Model model) {
 
         appointmentDao.deleteByPatientID(patientID);
         model.addAttribute("patient", patientDao.findById(patientID).orElse(null));
@@ -106,6 +106,16 @@ public class AppointmentController {
         return "self_assessment_nurse_results";
     }
 
+    @GetMapping("/view_appointment_patient/{patientID}")
+    public String view_appointment_patient(@PathVariable Long patientID, Model model) {
 
+        Patient patient = patientDao.findById(patientID).orElse(null);
+        model.addAttribute("patient", patient);
+
+        List<Appointment> appointments = appointmentDao.findByPatientID(patientID);
+        model.addAttribute("appointments", appointments);
+
+        return "view_appointment_patient";
+    }
 
 }
