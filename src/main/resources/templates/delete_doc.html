@@ -183,6 +183,10 @@
 			await fetch(url);
 		}
 
+		async function removeDoctorsAppointments(url) {
+			await fetch(url);
+		}
+
 		function registerDoctorButtonEvents() {
 			document.getElementById("remove-doctors").addEventListener("click", function () {
 				let selectedDoctorCheckboxes = document.querySelectorAll(`input[name="doctor-checkbox"]:checked`);
@@ -192,6 +196,8 @@
 				selectedDoctorCheckboxes.forEach((checkbox) => {
 					requestString += checkbox.id + ',';
 				});
+
+				removeDoctorsAppointments('/removeDoctorsAppointments' + requestString.slice(0, requestString.length - 1))
 
 				removeDoctors('/removeDoctors' + requestString.slice(0, requestString.length - 1)).then(
 					function () {
