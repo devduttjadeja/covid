@@ -181,6 +181,10 @@
 			await fetch(url);
 		}
 
+		async function removePatientsAppointments(url) {
+			await fetch(url);
+		}
+
 		function registerPatientButtonEvents() {
 			document.getElementById("remove-patients").addEventListener("click", function () {
 				let selectedPatientCheckboxes = document.querySelectorAll(`input[name="patient-checkbox"]:checked`);
@@ -190,6 +194,8 @@
 				selectedPatientCheckboxes.forEach((checkbox) => {
 					requestString += checkbox.id + ',';
 				});
+
+				removePatientsAppointments('/removePatientsAppointments' + requestString.slice(0, requestString.length - 1))
 
 				removePatients('/removePatients' + requestString.slice(0, requestString.length - 1)).then(
 					function () {
