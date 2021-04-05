@@ -215,4 +215,25 @@ public class AppointmentController {
 
         return "patient_list_nurse";
     }
+    
+    @GetMapping("/removePatientsAppointments")
+    @ResponseBody
+    public void removePatientsAppointments(@RequestParam List<Long> patientIDList) {
+        for (long patient : patientIDList)
+            appointmentDao.deleteByPatientID(patient);
+    }
+
+    @GetMapping("/removeNursesAppointments")
+    @ResponseBody
+    public void removeNursesAppointments(@RequestParam List<Long> nurseIDList) {
+        for (long nurse : nurseIDList)
+            appointmentDao.deleteByNurseID(nurse);
+    }
+
+    @GetMapping("/removeDoctorsAppointments")
+    @ResponseBody
+    public void removeDoctorsAppointments(@RequestParam List<Long> doctorIDList) {
+        for (long doctor : doctorIDList)
+            appointmentDao.deleteByDoctorID(doctor);
+    }
 }
