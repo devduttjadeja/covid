@@ -18,8 +18,19 @@ public interface AppointmentDao extends JpaRepository<Appointment, Long> {
 
     List<Appointment> findByPatientID(Long patientID);
 
+    @Transactional
     @Modifying
     @Query("delete from Appointment ap where ap.patientID = ?1")
     int deleteByPatientID(Long patientID);
+
+    @Transactional
+    @Modifying
+    @Query("delete from Appointment ap where ap.nurseID = ?1")
+    int deleteByNurseID(Long nurseID);
+
+    @Transactional
+    @Modifying
+    @Query("delete from Appointment ap where ap.doctorID = ?1")
+    int deleteByDoctorID(Long doctorID);
 
 }
