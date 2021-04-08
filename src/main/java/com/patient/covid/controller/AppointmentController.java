@@ -11,10 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 public class AppointmentController {
@@ -110,11 +112,14 @@ public class AppointmentController {
         return "view_appointment_patient";
     }
 
-    @GetMapping("/confirm_patient/{patientID}/{nurseID}")
-    public String confirm_appointment_nurse(@PathVariable Long patientID, @PathVariable Long nurseID, Model model) {
+    @GetMapping("/confirm_patient/{patientID}/{nurseID}/{appDate}")
+    public String confirm_appointment_nurse(@PathVariable Long patientID, @PathVariable Long nurseID,@PathVariable String appDate , Model model) throws ParseException {
 
         Patient patient = patientDao.findById(patientID).orElse(null);
         Nurse nurse = nurseDao.findById(nurseID).orElse(null);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = simpleDateFormat.parse(appDate);
 
         Appointment appointment = new Appointment();
         appointment.setPatientID(patientID);
@@ -123,12 +128,9 @@ public class AppointmentController {
         appointment.setNurseName(nurse.getNurseName());
         appointment.setConfirmed("Confirmed with Nurse");
 
-        Calendar calender = Calendar.getInstance();
-        calender.setTime(new Date());
-        calender.add(Calendar.WEEK_OF_MONTH, 1);
-        appointment.setAppointmentDate(calender.getTime());
+        appointment.setAppointmentDate(date);
 
-        appointment.setNotes("The patient has appointment with nurse on " + calender.getTime() + ". Please wear a mask.");
+        appointment.setNotes("The patient has appointment with nurse on " + date + ". Please wear a mask.");
         appointmentDao.save(appointment);
 
         // send confirmation email
@@ -138,24 +140,24 @@ public class AppointmentController {
     }
 
     @GetMapping("/confirm_patient_doctor/{patientID}/{doctorID}")
-    public String confirm_appointment_doctor(@PathVariable Long patientID, @PathVariable Long doctorID, Model model){
+    public String confirm_appointment_doctor(@PathVariable Long patientID, @PathVariable Long doctorID, Model model) {
 
         Patient patient = patientDao.findById(patientID).orElse(null);
         Doctor doctor = doctorDao.findById(doctorID).orElse(null);
+
+
+        List<Appointment> appList = appointmentDao.findByPatientDoctorID(patientID, doctorID);
+        Collections.sort(appList, new Sortbyapp());
+        Date date = appList.get(appList.size() - 1).getAppointmentDate();
 
         Appointment appointment = new Appointment();
         appointment.setPatientID(patientID);
         appointment.setPatientName(patient.getPatientName());
         appointment.setDoctorID(doctorID);
         appointment.setDoctorName(doctor.getDoctorName());
-
-        Calendar calender = Calendar.getInstance();
-        calender.setTime(new Date());
-        calender.add(Calendar.WEEK_OF_MONTH, 1);
-        appointment.setAppointmentDate(calender.getTime());
-
+        appointment.setAppointmentDate(date);
         appointment.setConfirmed("Confirmed with Doctor");
-        appointment.setNotes("The patient has appointment with doctor on " + calender.getTime() + ". Please wear a mask.");
+        appointment.setNotes("The patient has appointment with doctor on " + date + ". Please wear a mask.");
 
         appointmentDao.save(appointment);
         model.addAttribute("doctor", doctor);
@@ -197,25 +199,28 @@ public class AppointmentController {
         return "assign_patient_to_doctor";
     }
 
-    @GetMapping("confirm_assignment_with_doctor/{patientID}/{doctorID}")
-    public String confirm_assignment_with_doctor(@PathVariable Long patientID, @PathVariable Long doctorID, Model model){
+    @GetMapping("confirm_assignment_with_doctor")
+    public String confirm_assignment_with_doctor(@RequestParam("appDate") String appDate, @RequestParam("PatientID") Long patientID, @RequestParam("DoctorID") Long doctorID) throws ParseException {
 
         Patient patient = patientDao.findById(patientID).orElse(null);
         Doctor doctor = doctorDao.findById(doctorID).orElse(null);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = simpleDateFormat.parse(appDate);
 
         Appointment appointment = new Appointment();
         appointment.setPatientName(patient.getPatientName());
         appointment.setPatientID(patientID);
         appointment.setDoctorName(doctor.getDoctorName());
         appointment.setDoctorID(doctorID);
-        appointment.setAppointmentDate(new Date());
+        appointment.setAppointmentDate(date);
         appointment.setNotes("Patient requires a check-up by a doctor");
         appointment.setConfirmed("Assigned to Doctor");
         appointmentDao.save(appointment);
 
         return "patient_list_nurse";
     }
-    
+
     @GetMapping("/removePatientsAppointments")
     @ResponseBody
     public void removePatientsAppointments(@RequestParam List<Long> patientIDList) {
@@ -235,5 +240,12 @@ public class AppointmentController {
     public void removeDoctorsAppointments(@RequestParam List<Long> doctorIDList) {
         for (long doctor : doctorIDList)
             appointmentDao.deleteByDoctorID(doctor);
+    }
+}
+
+class Sortbyapp implements Comparator<Appointment> {
+
+    public int compare(Appointment a, Appointment b) {
+        return (int) (a.getAppointmentId() - b.getAppointmentId());
     }
 }

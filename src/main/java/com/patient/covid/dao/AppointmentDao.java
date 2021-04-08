@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,10 @@ public interface AppointmentDao extends JpaRepository<Appointment, Long> {
     List<Appointment> findByNurseID(Long nurseID, String status);
 
     List<Appointment> findByPatientID(Long patientID);
+
+    @Query("select ap from Appointment ap where ap.patientID = ?1 and ap.doctorID = ?2")
+    List<Appointment> findByPatientDoctorID(Long patientID, Long doctorID);
+
 
     @Transactional
     @Modifying

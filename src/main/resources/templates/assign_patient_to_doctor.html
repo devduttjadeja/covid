@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 
 <head>
 	<meta charset="utf-8">
@@ -210,7 +210,6 @@ Patient ID : <label th:text="${patient.patientID}"></label> <br>
 		<th>Doctor ID</th>
 		<th>Doctor Resistration No.</th>
 		<th>Doctor Name</th>
-		<th>Select</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -218,10 +217,25 @@ Patient ID : <label th:text="${patient.patientID}"></label> <br>
 		<td th:text="${item.doctorID}"></td>
 		<td th:text="${item.doctorRegistrationNumber}"></td>
 		<td th:text="${item.doctorName}"></td>
-		<td><a th:href="@{/confirm_assignment_with_doctor/{patientID}/{doctorID}(doctorID=${item.doctorID}, patientID=${patient.patientID})}">Select</a></td>
 	</tr>
 	</tbody>
 </table>
+<form action="/confirm_assignment_with_doctor">
+	<table>
+		<tr>
+			<td><label> Enter doctor I.D. :</label></td>
+			<td><input type="text"  name="DoctorID"  value="" /></td>
+		</tr>
+		<tr>
+			<td><label> Select appointment date : </label></td>
+			<td><input type="date" name="appDate"  /></td>
+		</tr>
+	</table>
+
+	<input type="text" id="temp_patientID" name = "PatientID" th:value="${patient.patientID}"/>
+	<input type="submit"  value="Appoint" />
+</form>
+
 
 <!-- Start of Footer-->
 
@@ -240,6 +254,8 @@ Patient ID : <label th:text="${patient.patientID}"></label> <br>
 <!-- JavaScript -->
 <script>
 
+	document.getElementById("temp_patientID").style.visibility = "hidden";
+
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -248,6 +264,7 @@ Patient ID : <label th:text="${patient.patientID}"></label> <br>
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+
 		crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

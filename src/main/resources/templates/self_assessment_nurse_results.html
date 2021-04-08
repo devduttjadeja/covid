@@ -234,8 +234,19 @@ Patient Id : <label id="patientID" th:text="${patient.patientID}"></label> <br>
 </table>
 
 <button class="usrbutton" id="reject_patient">Reject patient</button>
-<button class="usrbutton" id="confirm_patient">Confirm patient</button>
 <button class="usrbutton" id="assign_patient_to_doctor">Assign to Doctor</button>
+
+
+	<table>
+		<tr>
+			<td><label> Select your appointment date : </label></td>
+			<td><input type="date" id="appointmentDate" name="appDate"  /></td>
+		</tr>
+	</table>
+
+
+<button onclick="confirmPatient()">Confirm Patient</button>
+
 
 
 <!-- Start of Footer-->
@@ -258,10 +269,12 @@ Patient Id : <label id="patientID" th:text="${patient.patientID}"></label> <br>
 	var patientID = document.getElementById("patientID").innerHTML;
 	var nurseID = localStorage.getItem("loggedInNurse");
 
-    document.getElementById("confirm_patient").addEventListener("click", function () {
-        window.location.href="/confirm_patient/"+patientID + "/" + nurseID;
-    })
-    
+
+	function confirmPatient(){
+		var appDate = document.getElementById("appointmentDate").value;
+		window.location.href="/confirm_patient/"+patientID + "/" + nurseID + "/" + appDate;
+	}
+
     document.getElementById("reject_patient").addEventListener("click", function () {
         window.location.href="/reject_patient_nurse/"+patientID + "/" + nurseID;
     })
