@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface PatientSelfAssessmentDao extends JpaRepository<PatientSelfAssesment, Long> {
     List<PatientSelfAssesment> findByPatientID(Long patientID);
+
 }
 

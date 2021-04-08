@@ -91,5 +91,10 @@ public class RedirectionController {
         return "patient_list_nurse";
     }
 
+    @GetMapping("/get_report")
+    public String get_report(){
+        return "get_report";
+    }
+
 
 }
