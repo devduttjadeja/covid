@@ -68,8 +68,7 @@ public class UserController {
             m="Mar";
         else if(month.endsWith("04"))
             m="Apr";
-        else
-            m="none";
+
         List<PatientSelfAssesment> filteredList = assessmentFilter(assesmentList,year,m);
 
         model.addAttribute("assessmentList",filteredList);

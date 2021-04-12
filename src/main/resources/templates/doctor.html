@@ -136,6 +136,11 @@
    color: #fff;
    margin-top: 4%;
    }
+
+   .btn-trans{
+background-color: transparent;
+border-color: #ccc;
+  }
 </style>
     
     <title>Doctor-Fight COVID</title>
@@ -197,61 +202,46 @@
 </header>
 <!-- End of Header-->
 
-<section class="nurse-page my-4 mx-5">
-
-    <div class="container-fluid">
-
+<section class="breadcrumbs-section">
+    <div class="container p-1 p-sm-1">
         <div class="row">
-            <div class="col-md-4 px-5 pt-3 nurse-page-right">
-                <img src="images/user.png" width="150" class="img-fluid nurse-img" alt=""><br>
-                <table width="600px">
-                    <tr>
-                        <td><label>Doctor ID:</label></td>
-                        <td><label id="doctorID" th:text="${doctor.doctorID}"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Registration number:</label></td>
-                        <td><label id="doctorRegistrationNumber" th:text="${doctor.doctorRegistrationNumber}"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Name:</label></td>
-                        <td><label id="doctorName" th:text="${doctor.doctorName}"></label></td>
-                    </tr>
-
-                    <tr>
-                        <td><label>Phone: </label></td>
-                        <td><label id="phone" th:text="${doctor.phone}"></label></td>
-                    </tr>
-
-                    <tr>
-                        <td><label>Email: </label></td>
-                        <td><label id="email" th:text="${doctor.email}"></label></td>
-                    </tr>
-
-                    <tr>
-                        <td><label>Date Of Birth: </label></td>
-                        <td><label id="dateOfBirth" th:text="${doctor.dateOfBirth}"></label></td>
-                    </tr>
-                    <tr>
-                        <td><label>Address: </label></td>
-                        <td><label id="address" th:text="${doctor.address}"></label></td>
-                    </tr>
-
-                </table>
-                <button onclick="location.href = '/patient_list';" class="usrbutton" id="patient">Patient List</button>
-                <button class="usrbutton" id="viewAppointments">View Appointments</button>
-
-            </div>
-            <div class="col-md-7 px-5 pt-5 list" id="list">
-
+            <div class="col-12 ">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">My Profile</li>
+                </ol>
             </div>
         </div>
-
-
     </div>
-
+</section>
+<section class="top-hero-section pt-4 pb-5">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-4 card">
+                <div class="d-flex flex-column align-items-center ">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                        <h4><label id="doctorName" th:text="${doctor.doctorName}"></label></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 card-body">
+                <label><b>Doctor ID:</b></label>
+                <label id="doctorID" th:text="${doctor.doctorID}"></label><br>
+                <label><b>DOB:</b></label>
+                <label id="dateOfBirth" th:text="${doctor.dateOfBirth}"></label><br>
+                <label><b>Doctor Reg. No.:</b></label>
+                <label id="doctorRegNum" th:text="${doctor.doctorRegistrationNumber}"></label><br>
+                <label><b>Phone:</b></label>
+                <label id="phone" th:text="${doctor.phone}"></label><br>
+                <label><b>Email: </b></label>
+                <label id="email" th:text="${doctor.email}"></label><br>
+                <label><b>Address: </b></label>
+                <label id="address" th:text="${doctor.address}"></label><br>
+                <button class="btn btn-primary usrbutton" onclick="location.href = '/patient_list';" id="patient">Patient List</button>
+                <button class="btn btn-primary usrbutton"  id="viewAppointments">View Appointments</button>
+            </div>
+        </div>
+    </div>
 </section>
 
 
@@ -278,7 +268,10 @@
     document.getElementById("viewAppointments").addEventListener("click", function () {
         window.location.href ="/viewAppointments/doctor/"+doctorID;
     })
-    
+
+    function goBack() {
+  window.history.back();
+  }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

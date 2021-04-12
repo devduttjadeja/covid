@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet"
 		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -14,7 +12,6 @@
 		  href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		  integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
 		  crossorigin="anonymous">
-	
 	<!--Custom CSS -->
 	<style>
    .myrows{
@@ -136,16 +133,16 @@
    color: #fff;
    margin-top: 4%;
    }
+
+   .btn-trans{
+background-color: transparent;
+border-color: #ccc;
+  }
 </style>
-	
 	<title>Home - Fight COVID</title>
 </head>
-
 <body>
-
-
 <header>
-	
 	<div id="pageHeader">
 		<div class="container-fluid">
 			<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
@@ -168,7 +165,6 @@
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
-							
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="/user_reg">Patient registration</a>
 								<div class="dropdown-divider"></div>
@@ -176,11 +172,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
 							</div>
-						
 						</li>
-					
 					</ul>
-					
 					<div class="collapse navbar-collapse">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
@@ -193,19 +186,28 @@
 					</div>
 				</div>
 			</nav>
-		
 		</div>
 	</div>
-
 </header>
 <!-- End of Header-->
-
 <br>
-Self Assessment Results for <label th:text="${patient.patientName}"></label> <br>
+<section class="breadcrumbs-section">
+	<div class="container p-1 p-sm-1">
+		<div class="row">
+			<div class="col-12 ">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button></li>
+					<li class="breadcrumb-item active">Self-Assessment Results</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<h4 text-align = "center">
+	<b>Self Assessment Results for <label th:text="${patient.patientName}"></label></b>
+</h4>
 <label id="patient_ID"  th:text="${patient.patientID}"></label>
-
-
-
 <br>
 <table id="self_assessment_result" class="table table-striped table-primary">
 	<thead>
@@ -235,13 +237,9 @@ Self Assessment Results for <label th:text="${patient.patientName}"></label> <br
 	</tr>
 	</tbody>
 </table>
-
-
 <button class="usrbutton" id="reject_patient">Reject patient</button>
 <button class="usrbutton" id="confirm_patient">Confirm patient</button>
-
 <!-- Start of Footer-->
-
 <footer class="pagefooter">
 	<div class="container-fluid bottom-footer pt-2">
 		<div class="row">
@@ -250,28 +248,22 @@ Self Assessment Results for <label th:text="${patient.patientName}"></label> <br
 			</div>
 		</div>
 	</div>
-
 </footer>
-
-
 <!-- JavaScript -->
 <script>
-
-	document.getElementById("patient_ID").style.visibility = "hidden";
-
-
-	var patientID = document.getElementById("patient_ID").innerHTML;
-	var doctorID = localStorage.getItem("loggedInDoctor");
-	
+   document.getElementById("patient_ID").style.visibility = "hidden";
+   var patientID = document.getElementById("patient_ID").innerHTML;
+   var doctorID = localStorage.getItem("loggedInDoctor");
     document.getElementById("reject_patient").addEventListener("click", function () {
         window.location.href="/reject_patient/"+patientID + "/" + doctorID;
     })
-
-	document.getElementById("confirm_patient").addEventListener("click", function () {
+   document.getElementById("confirm_patient").addEventListener("click", function () {
         window.location.href="/confirm_patient_doctor/"+patientID + "/" + doctorID;
     })
 
-
+    function goBack() {
+  window.history.back();
+  }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -287,5 +279,4 @@ Self Assessment Results for <label th:text="${patient.patientName}"></label> <br
 		crossorigin="anonymous">
 </script>
 </body>
-
 </html>

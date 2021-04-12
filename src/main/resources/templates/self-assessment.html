@@ -25,6 +25,11 @@
 
     }
 
+    .btn-trans{
+background-color: transparent;
+border-color: #ccc;
+  }
+
     /* Small devices (landscape phones, larger than 768px) */
     @media (min-width: 767.98px) {
       .container {
@@ -185,283 +190,271 @@
   </header>
   <!-- End of Header-->
 
-  <div class="container" style="margin-top: 2%; font-size: 1.25rem;; line-height: 150%;">
-    <h5 align="center"><b>Self Assessment Page</b></h5>
 
-    <div class="article">
-      <div class="row">
-        Patient ID: <label id="patientID"></label> <br>
-      </div>
 
-      <div class="row">
-        Name: <label id="patientName"></label>
-      </div>
-
-      <!-- question 6 -->
-      <div id="q6">
-        <div class="row" style="margin-top: 5%;">
-          <p>Have you been in close contact with a confirmed or probable case of COVID-19</p>
-        </div>
-
+    <section class="breadcrumbs-section">
+      <div class="container p-1 p-sm-1">
         <div class="row">
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="yes-button-div">
-              <button id="q6-yes" class="q-button">Yes</button>
-            </div>
-          </div>
-
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="no-button-div">
-              <button id="q6-no" class="q-button">No</button>
-            </div>
+          <div class="col-12 ">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button></li>
+              <li class="breadcrumb-item active">Self-assessment Form</li>
+            </ol>
           </div>
         </div>
       </div>
-
-      <!-- question 7 -->
-      <div id="q7" style="margin-top: 10%; display: none;">
-        <div class="row" style="margin-top:5%;">
-          <p>Have you been tested for COVID-19</p>
-        </div>
-
-        <div class="row">
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="yes-button-div">
-              <button id="q7-yes" class="q-button">Yes</button>
+    </section>
+    <section class="top-hero-section pt-4 pb-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <div class="d-flex flex-column align-items-center ">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-2">
+                <b>Patient ID:</b><label id="patientID"></label> <br>
+                <b>Name:</b><label id="patientName"></label>
+              </div>
             </div>
           </div>
-
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="no-button-div">
-              <button id="q7-no" class="q-button">No</button>
+          <div class="col-md-8">
+            <!-- question 6 -->
+            <div id="q6">
+              <div class="row" style="margin-top: 5%;">
+                <p>Have you been in close contact with a confirmed or probable case of COVID-19</p>
+              </div>
+              <div class="row">
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="yes-button-div">
+                    <button id="q6-yes" class="q-button">Yes</button>
+                  </div>
+                </div>
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="no-button-div">
+                    <button id="q6-no" class="q-button">No</button>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- question 7 -->
+            <div id="q7" style="margin-top: 10%; display: none;">
+              <div class="row" style="margin-top:5%;">
+                <p>Have you been tested for COVID-19</p>
+              </div>
+              <div class="row">
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="yes-button-div">
+                    <button id="q7-yes" class="q-button">Yes</button>
+                  </div>
+                </div>
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="no-button-div">
+                    <button id="q7-no" class="q-button">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- question 8 -->
+            <div id="q8" style="margin-top: 10%; display: none;">
+              <div class="row">
+                <p>Have you or someone close to you travelled outside of Canada within the last 14 days</p>
+              </div>
+              <div class="row">
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="yes-button-div">
+                    <button id="q8-yes" class="q-button">Yes</button>
+                  </div>
+                </div>
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="no-button-div">
+                    <button id="q8-no" class="q-button">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- question 1 -->
+            <div id="q1" style="margin-top: 10%; display: none;">
+              <div class="row">
+                <p>Are you having difficulty breathing? For example, do you feel like you're out of breath or
+                  suffocating?</p>
+              </div>
+              <div class="row">
+                <p class="font-weight-bold">OR</p>
+              </div>
+              <div class="row">
+                <p>Do you have a lot of trouble breathing even when at rest, such as shortness of breath that makes it
+                  hard to speak?</p>
+              </div>
+              <div class="row">
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="yes-button-div">
+                    <button id="q1-yes" class="q-button">Yes</button>
+                  </div>
+                </div>
+                <div class="col-md" style="margin-top: 5%;">
+                  <div class="no-button-div">
+                    <button id="q1-no" class="q-button">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="q2-4" style="display: none;">
+              <!-- question 2 -->
+              <div id="q2" style="display: none;">
+                <div class="row" style="margin-top: 10%;">
+                  <p>Please select an age range</p>
+                </div>
+                <div class="row">
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div>
+                      <button id="q2-1" class="q-button">6 months–5 years</button>
+                    </div>
+                  </div>
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div>
+                      <button id="q2-2" class="q-button">6–17 years</button>
+                    </div>
+                  </div>
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div>
+                      <button id="q2-3" class="q-button">18 years+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- question 3 -->
+              <div id="q3" style="display: none;">
+                <!-- question 3(6 months–5 years) -->
+                <div id="q3-1" class="row" style="margin-top: 5%;">
+                  <p>Is your child experiencing ANY of the following symptoms?</p>
+                  <ul class="text-secondary">
+                    <li>Fever (38.5°C rectal temperature (101.3°F) or higher)</li>
+                    <li>Cough (new or worse), shortness of breath, or difficulty breathing</li>
+                    <li>Runny nose or nasal congestion or sore throat<br>
+                      AND<br>
+                      fever (38.1°C rectal temperature (100.6°F) or higher)
+                    </li>
+                    <li>Abdominal pain, vomiting, or diarrhea<br>
+                      AND<br>
+                      fever (38.1°C rectal temperature (100.6°F) or higher)
+                    </li>
+                  </ul>
+                </div>
+                <!-- question 3(6–17 years/18 years+) -->
+                <div id="q3-2" class="row" style="margin-top: 5%; display: none;">
+                  <p id="q3-2-1">Does your child have ANY of the following symptoms?</p>
+                  <p id="q3-2-2" style="display: none;">Are you experiencing ANY of the following symptoms?</p>
+                  <ul class="text-secondary">
+                    <li>Fever (oral temperature 38.1°C (100.6°F) or higher)</li>
+                    <li>Sudden loss of sense of smell (anosmia) without nasal congestion,<br>
+                      with or without loss of taste
+                    </li>
+                    <li>Recent cough or worsening of a chronic cough</li>
+                    <li>Shortness of breath</li>
+                    <li>Trouble breathing</li>
+                    <li>Sore throat</li>
+                    <li>Runny nose or congestion (of unknown cause)</li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div class="yes-button-div">
+                      <button id="q3-yes" class="q-button">Yes</button>
+                    </div>
+                  </div>
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div class="no-button-div">
+                      <button id="q3-no" class="q-button">No</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- question 4 -->
+              <div id="q4" style="display: none;">
+                <div class="row" style="margin-top: 5%;">
+                  <p id="q4-1">Does your child have any 2 of the following symptoms?</p>
+                  <p id="q4-2" style="display: none;">Are you experiencing at least 2 of the following symptoms?
+                  </p>
+                  <ul class="text-secondary">
+                    <li>Stomach aches</li>
+                    <li>Nausea or vomiting</li>
+                    <li>Diarrhea</li>
+                    <li>Major fatigue</li>
+                    <li>Significant loss of appetite</li>
+                    <li>Generalized muscle pain (not related to physical exertion)</li>
+                    <li>Headache</li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div class="yes-button-div">
+                      <button id="q4-yes" class="q-button">Yes</button>
+                    </div>
+                  </div>
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div class="no-button-div">
+                      <button id="q4-no" class="q-button">No</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- question 5 -->
+              <div id="q5" style="display: none;">
+                <div id="q5-1" class="row" style="margin-top: 5%;">
+                  <p>Are you or the person who is going to get tested in one of the situations below?</p>
+                  <ul class="text-secondary">
+                    <li>Is 0 to 3 months old</li>
+                    <li>Is experiencing an obstruction of nasal passages other than normal<br>
+                      congestion
+                    </li>
+                    <li>Is currently having a nosebleed episode</li>
+                    <li>Has had a nosebleed episode in the past week</li>
+                    <li>Has undergone any of the following types of surgery:</li>
+                    <ul>
+                      <li>Mouth surgery in the past week?</li>
+                      <li>Nose surgery in the past month (adult) OR</li>
+                      <li>Nose surgery in the past 3 weeks (child)</li>
+                    </ul>
+                    <li>Is currently wheezing.</li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div class="yes-button-div">
+                      <button id="q5-yes" class="q-button">Yes</button>
+                    </div>
+                  </div>
+                  <div class="col-md" style="margin-top: 5%;">
+                    <div class="no-button-div">
+                      <button id="q5-no" class="q-button">No</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr style="margin-top: 8%; border-top: 1px dashed grey;">
+            <!-- submit -->
+            <div class="col-12" style="margin-top: 1%; margin-bottom: 5%;">
+              <div class="text-center">
+                <button id="submit" class="submit-button shadow-sm" disabled>Submit</button>
+              </div>
+            </div>
+            <input type="hidden" name="q1" id="q1ans">
+            <input type="hidden" name="q2" id="q2ans">
+            <input type="hidden" name="q3" id="q3ans">
+            <input type="hidden" name="q4" id="q4ans">
+            <input type="hidden" name="q5" id="q5ans">
           </div>
         </div>
       </div>
-
-      <!-- question 8 -->
-      <div id="q8" style="margin-top: 10%; display: none;">
-        <div class="row">
-          <p>Have you or someone close to you travelled outside of Canada within the last 14 days</p>
-        </div>
-
-        <div class="row">
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="yes-button-div">
-              <button id="q8-yes" class="q-button">Yes</button>
-            </div>
-          </div>
-
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="no-button-div">
-              <button id="q8-no" class="q-button">No</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- question 1 -->
-      <div id="q1" style="margin-top: 10%; display: none;">
-        <div class="row">
-          <p>Are you having difficulty breathing? For example, do you feel like you're out of breath or
-            suffocating?</p>
-        </div>
-
-        <div class="row">
-          <p class="font-weight-bold">OR</p>
-        </div>
-
-        <div class="row">
-          <p>Do you have a lot of trouble breathing even when at rest, such as shortness of breath that makes it
-            hard to speak?</p>
-        </div>
-
-        <div class="row">
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="yes-button-div">
-              <button id="q1-yes" class="q-button">Yes</button>
-            </div>
-          </div>
-
-          <div class="col-md" style="margin-top: 5%;">
-            <div class="no-button-div">
-              <button id="q1-no" class="q-button">No</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="q2-4" style="display: none;">
-        <!-- question 2 -->
-        <div id="q2" style="display: none;">
-          <div class="row" style="margin-top: 10%;">
-            <p>Please select an age range</p>
-          </div>
-
-          <div class="row">
-            <div class="col-md" style="margin-top: 5%;">
-              <div>
-                <button id="q2-1" class="q-button">6 months–5 years</button>
-              </div>
-            </div>
-
-            <div class="col-md" style="margin-top: 5%;">
-              <div>
-                <button id="q2-2" class="q-button">6–17 years</button>
-              </div>
-            </div>
-
-            <div class="col-md" style="margin-top: 5%;">
-              <div>
-                <button id="q2-3" class="q-button">18 years+</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- question 3 -->
-        <div id="q3" style="display: none;">
-          <!-- question 3(6 months–5 years) -->
-          <div id="q3-1" class="row" style="margin-top: 5%;">
-            <p>Is your child experiencing ANY of the following symptoms?</p>
-
-            <ul class="text-secondary">
-              <li>Fever (38.5°C rectal temperature (101.3°F) or higher)</li>
-              <li>Cough (new or worse), shortness of breath, or difficulty breathing</li>
-              <li>Runny nose or nasal congestion or sore throat<br>
-                AND<br>
-                fever (38.1°C rectal temperature (100.6°F) or higher)
-              </li>
-              <li>Abdominal pain, vomiting, or diarrhea<br>
-                AND<br>
-                fever (38.1°C rectal temperature (100.6°F) or higher)
-              </li>
-            </ul>
-          </div>
-
-          <!-- question 3(6–17 years/18 years+) -->
-          <div id="q3-2" class="row" style="margin-top: 5%; display: none;">
-            <p id="q3-2-1">Does your child have ANY of the following symptoms?</p>
-            <p id="q3-2-2" style="display: none;">Are you experiencing ANY of the following symptoms?</p>
-
-            <ul class="text-secondary">
-              <li>Fever (oral temperature 38.1°C (100.6°F) or higher)</li>
-              <li>Sudden loss of sense of smell (anosmia) without nasal congestion,<br>
-                with or without loss of taste
-              </li>
-              <li>Recent cough or worsening of a chronic cough</li>
-              <li>Shortness of breath</li>
-              <li>Trouble breathing</li>
-              <li>Sore throat</li>
-              <li>Runny nose or congestion (of unknown cause)</li>
-            </ul>
-          </div>
-
-          <div class="row">
-            <div class="col-md" style="margin-top: 5%;">
-              <div class="yes-button-div">
-                <button id="q3-yes" class="q-button">Yes</button>
-              </div>
-            </div>
-
-            <div class="col-md" style="margin-top: 5%;">
-              <div class="no-button-div">
-                <button id="q3-no" class="q-button">No</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- question 4 -->
-        <div id="q4" style="display: none;">
-          <div class="row" style="margin-top: 5%;">
-            <p id="q4-1">Does your child have any 2 of the following symptoms?</p>
-            <p id="q4-2" style="display: none;">Are you experiencing at least 2 of the following symptoms?
-            </p>
-
-            <ul class="text-secondary">
-              <li>Stomach aches</li>
-              <li>Nausea or vomiting</li>
-              <li>Diarrhea</li>
-              <li>Major fatigue</li>
-              <li>Significant loss of appetite</li>
-              <li>Generalized muscle pain (not related to physical exertion)</li>
-              <li>Headache</li>
-            </ul>
-          </div>
-
-          <div class="row">
-            <div class="col-md" style="margin-top: 5%;">
-              <div class="yes-button-div">
-                <button id="q4-yes" class="q-button">Yes</button>
-              </div>
-            </div>
-
-            <div class="col-md" style="margin-top: 5%;">
-              <div class="no-button-div">
-                <button id="q4-no" class="q-button">No</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- question 5 -->
-        <div id="q5" style="display: none;">
-          <div id="q5-1" class="row" style="margin-top: 5%;">
-            <p>Are you or the person who is going to get tested in one of the situations below?</p>
-            <ul class="text-secondary">
-              <li>Is 0 to 3 months old</li>
-              <li>Is experiencing an obstruction of nasal passages other than normal<br>
-                congestion
-              </li>
-              <li>Is currently having a nosebleed episode</li>
-              <li>Has had a nosebleed episode in the past week</li>
-              <li>Has undergone any of the following types of surgery:</li>
-              <ul>
-                <li>Mouth surgery in the past week?</li>
-                <li>Nose surgery in the past month (adult) OR</li>
-                <li>Nose surgery in the past 3 weeks (child)</li>
-              </ul>
-              <li>Is currently wheezing.</li>
-            </ul>
-          </div>
-
-          <div class="row">
-            <div class="col-md" style="margin-top: 5%;">
-              <div class="yes-button-div">
-                <button id="q5-yes" class="q-button">Yes</button>
-              </div>
-            </div>
-
-            <div class="col-md" style="margin-top: 5%;">
-              <div class="no-button-div">
-                <button id="q5-no" class="q-button">No</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <hr style="margin-top: 8%; border-top: 1px dashed grey;">
-
-      <!-- submit -->
-      <div class="col-12" style="margin-top: 1%; margin-bottom: 5%;">
-        <div class="text-center">
-          <button id="submit" class="submit-button shadow-sm" disabled>Submit</button>
-        </div>
-      </div>
-      <input type="hidden" name="q1" id="q1ans">
-      <input type="hidden" name="q2" id="q2ans">
-      <input type="hidden" name="q3" id="q3ans">
-      <input type="hidden" name="q4" id="q4ans">
-      <input type="hidden" name="q5" id="q5ans">
-    </div>
-  </div>
+    </section>
 
 
   <script>
 
+
+    function goBack() {
+  window.history.back();
+  }
     window.onload = function () {
       var patientName = localStorage.getItem("patientName");
       var patientID = localStorage.getItem("patientID");

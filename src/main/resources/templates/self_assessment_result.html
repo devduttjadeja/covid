@@ -17,6 +17,11 @@
 	
 	<!--Custom CSS -->
 	<style>
+	.btn-trans{
+background-color: transparent;
+border-color: #ccc;
+  }
+
    .myrows{
    border: 3px solid green;
    padding: 5px;
@@ -200,39 +205,99 @@
 </header>
 <!-- End of Header-->
 
-<br>
-Self Assessment Results for <label th:text="${patient.patientName}"></label> <br>
-Patient Id : <label th:text="${patient.patientID}"></label> <br>
-<br>
-<table id="self_assessment_result" class="table table-striped table-primary">
-	<thead>
-	<tr>
-		<th>Assessment Date</th>
-		<th>Difficulty In Breathing</th>
-		<th>Age Range</th>
-		<th>Experiencing Fever</th>
-		<th>Experiencing Nausea</th>
-		<th>Has Undergone Surgery</th>
-		<th>Contact with COVID-19</th>
-		<th>Tested</th>
-		<th>Travelled outside of Canada</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr th:each="item : ${selfassessmentsOfPatient}">
-		<td th:text="${item.assessmentDate}"></td>
-		<td th:text="${item.difficultyInBreathing}"></td>
-		<td th:text="${item.age}"></td>
-		<td th:text="${item.symptoms1}"></td>
-		<td th:text="${item.symptoms2}"></td>
-		<td th:text="${item.situation}"></td>
-		<td th:text="${item.closeContact}"></td>
-		<td th:text="${item.tested}"></td>
-		<td th:text="${item.travel}"></td>
-	</tr>
-	</tbody>
-</table>
+<!--<br>-->
+<!--Self Assessment Results for <label th:text="${patient.patientName}"></label> <br>-->
+<!--Patient Id : <label th:text="${patient.patientID}"></label> <br>-->
+<!--<br>-->
+<!--<table id="self_assessment_result" class="table table-striped table-primary">-->
+<!--	<thead>-->
+<!--	<tr>-->
+<!--		<th>Assessment Date</th>-->
+<!--		<th>Difficulty In Breathing</th>-->
+<!--		<th>Age Range</th>-->
+<!--		<th>Experiencing Fever</th>-->
+<!--		<th>Experiencing Nausea</th>-->
+<!--		<th>Has Undergone Surgery</th>-->
+<!--		<th>Contact with COVID-19</th>-->
+<!--		<th>Tested</th>-->
+<!--		<th>Travelled outside of Canada</th>-->
+<!--	</tr>-->
+<!--	</thead>-->
+<!--	<tbody>-->
+<!--	<tr th:each="item : ${selfassessmentsOfPatient}">-->
+<!--		<td th:text="${item.assessmentDate}"></td>-->
+<!--		<td th:text="${item.difficultyInBreathing}"></td>-->
+<!--		<td th:text="${item.age}"></td>-->
+<!--		<td th:text="${item.symptoms1}"></td>-->
+<!--		<td th:text="${item.symptoms2}"></td>-->
+<!--		<td th:text="${item.situation}"></td>-->
+<!--		<td th:text="${item.closeContact}"></td>-->
+<!--		<td th:text="${item.tested}"></td>-->
+<!--		<td th:text="${item.travel}"></td>-->
+<!--	</tr>-->
+<!--	</tbody>-->
+<!--</table>-->
 
+<section class="breadcrumbs-section">
+	<div class="container p-1 p-sm-1">
+		<div class="row">
+			<div class="col-12 ">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button></li>
+					<li class="breadcrumb-item active">Self-Assessment Results</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+<h5 align="center"><b>Self Assessment Results </b></h5>
+<section class="top-hero-section pt-4 pb-5">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-1">
+				<div class="d-flex flex-column align-items-center ">
+					<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+					<div class="mt-2">
+						<b><label th:text="${patient.patientName}"></label> <br></b>
+						<b><label th:text="${patient.patientID}"></label> <br></b>
+					</div>
+				</div>
+			</div>
+			<div class="col-md">
+				<table id="self_assessment_result" class="table table-striped table-primary">
+					<thead>
+					<tr>
+								<th>Assessment Date</th>
+								<th>Difficulty In Breathing</th>
+								<th>Age Range</th>
+								<th>Experiencing Fever</th>
+								<th>Experiencing Nausea</th>
+								<th>Has Undergone Surgery</th>
+								<th>Contact with COVID-19</th>
+								<th>Tested</th>
+								<th>Travelled outside of Canada</th>
+
+					</tr>
+					</thead>
+					<tbody>
+						<tr th:each="item : ${selfassessmentsOfPatient}">
+							<td th:text="${item.assessmentDate}"></td>
+							<td th:text="${item.difficultyInBreathing}"></td>
+							<td th:text="${item.age}"></td>
+							<td th:text="${item.symptoms1}"></td>
+							<td th:text="${item.symptoms2}"></td>
+							<td th:text="${item.situation}"></td>
+							<td th:text="${item.closeContact}"></td>
+							<td th:text="${item.tested}"></td>
+							<td th:text="${item.travel}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</section>
 <!-- Start of Footer-->
 
 <footer class="pagefooter">
@@ -250,6 +315,9 @@ Patient Id : <label th:text="${patient.patientID}"></label> <br>
 <!-- JavaScript -->
 <script>
 
+	function goBack() {
+  window.history.back();
+  }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
