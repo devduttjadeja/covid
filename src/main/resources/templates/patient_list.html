@@ -10,143 +10,144 @@
 	<!--Custom CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<style>
-	
-	table, th, td {
-  		border-collapse: collapse;
-	}
-	table.center {
-  		margin-left: auto;
-  		margin-right: auto;
-	}
+		table,
+		th,
+		td {
+			border-collapse: collapse;
+		}
 
-	.btn-trans{
-background-color: transparent;
-border-color: #ccc;
-  }
-	
+		table.center {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.btn-trans {
+			background-color: transparent;
+			border-color: #ccc;
+		}
 	</style>
-	
+
 	<title>Home - Fight COVID</title>
 </head>
 
-<body>
+<body style="display: flex; min-height: 100vh; flex-direction: column;">
 
+	<header>
 
-<header>
-	
-	<div id="pageHeader">
-		<div class="container-fluid">
-			<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
-				<a class="navbar-brand" href="">
-					<img src="images/stopcovid.jpg" width="50px" alt="">
-				</a>
-				<button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span
-						class="navbar-toggler-icon"></span></button>
-				<div class="collapse navbar-collapse" id="navbarToggler">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/news">News</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/aboutus">About us</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
-							
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/user_reg">Patient registration</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
-							</div>
-						
-						</li>
-					
-					</ul>
-					
-					<div class="collapse navbar-collapse">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item">
-								<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
+		<div id="pageHeader">
+			<div class="container-fluid">
+				<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
+					<a class="navbar-brand" href="">
+						<img src="images/stopcovid.jpg" width="50px" alt="">
+					</a>
+					<button data-toggle="collapse" data-target="#navbarToggler" type="button"
+						class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+					<div class="collapse navbar-collapse" id="navbarToggler">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+								<a class="nav-link" href="/news">News</a>
 							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/aboutus">About us</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									href="#">Registration</a>
+
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/user_reg">Patient registration</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
+								</div>
+
+							</li>
+
 						</ul>
+
+						<div class="navbar-collapse">
+							<ul class="navbar-nav ml-auto">
+								<li class="nav-item">
+									<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+								</li>
+							</ul>
+						</div>
 					</div>
+				</nav>
+
+			</div>
+		</div>
+
+	</header>
+	<!-- End of Header-->
+
+	<div style="flex: 1;">
+		<div class="container p-1 p-sm-1">
+			<div class="row">
+				<div class="col-12 ">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button>
+						</li>
+						<li class="breadcrumb-item active" style="margin-top: 7px;">Patients List</li>
+					</ol>
 				</div>
-			</nav>
-		
-		</div>
-	</div>
-
-</header>
-<!-- End of Header-->
-
-<section class="breadcrumbs-section">
-	<div class="container p-1 p-sm-1">
-		<div class="row">
-			<div class="col-12 ">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button></li>
-					<li class="breadcrumb-item active">Patients List</li>
-				</ol>
 			</div>
 		</div>
-	</div>
-</section>
-<h5 align="center"><b>Patient List</b></h5>
-<section class="top-hero-section pt-2 pb-5">
-	<div class="container-fluid ">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<!--<table id="patients" width="90%" class="center table-striped"></table>-->
-			<table id="patients" class="table table-striped table-primary"></table>
-		</div>
-	</div>
-</section>
 
-<!-- Start of Footer-->
+		<div class="container">
+			<h5 text-align="center"><b>Patient List</b></h5>
 
-<footer class="pagefooter">
-	<div class="container-fluid bottom-footer pt-2">
-		<div class="row">
-			<div class="col-12 text-center">
-				<p>Copyrights © 2021 - All rights reserved</p>
+			<div class="row">
+				<div class="col-12 table-responsive" style="padding-left: 0px; padding-right: 0px;">
+					<!--<table id="patients" width="90%" class="center table-striped"></table>-->
+					<table id="patients" class="table table-striped table-primary"></table>
+				</div>
 			</div>
 		</div>
 	</div>
 
-</footer>
+	<!-- Start of Footer-->
+	<footer>
+		<div class="container-fluid bottom-footer pt-2" style="margin-top: 5%;">
+			<div class="row">
+				<div class="col-12 text-center">
+					<p>Copyrights © 2021 - All rights reserved</p>
+				</div>
+			</div>
+		</div>
+
+	</footer>
 
 
-<!-- JavaScript -->
-<script>
+	<!-- JavaScript -->
+	<script>
 
-	// show patients
-	getapi('/patients');
+		// show patients
+		getapi('/patients');
 
-	// Defining async function
-	async function getapi(url) {
+		// Defining async function
+		async function getapi(url) {
 
-    // Storing response
-    const response = await fetch(url);
+			// Storing response
+			const response = await fetch(url);
 
-    // Storing data in form of JSON
-    var data = await response.json();
-    console.log(data);
-    show(data);
-	}
+			// Storing data in form of JSON
+			var data = await response.json();
+			console.log(data);
+			show(data);
+		}
 
-	// Function to define innerHTML for HTML table
-	function show(data) {
-    let tab =
-        `<tr>
+		// Function to define innerHTML for HTML table
+		function show(data) {
+			let tab =
+				`<tr>
 		<th>ID</th>
 		<th>Name</th>
 		<th>Phone</th>
@@ -155,9 +156,9 @@ border-color: #ccc;
 		<th>Email</th>
 		</tr>`;
 
-    // Loop to access all rows
-    for (let patient of data) {
-        tab += `<tr>
+			// Loop to access all rows
+			for (let patient of data) {
+				tab += `<tr>
 	<td>${patient.patientID}</td>
 	<td><a href="/selfassessments/${patient.patientID}"> ${patient.patientName} </a></td>
 	<td>${patient.phone}</td>
@@ -165,21 +166,21 @@ border-color: #ccc;
 	<td>${patient.dateOfBirth}</td>
 	<td>${patient.email}</td>
             </tr>`;
-    }
-    // Setting innerHTML as tab variable
-    document.getElementById("patients").innerHTML = tab;
-}
+			}
+			// Setting innerHTML as tab variable
+			document.getElementById("patients").innerHTML = tab;
+		}
 
-function goBack() {
-  window.history.back();
-  }
+		function goBack() {
+			window.history.back();
+		}
 
 
 
-</script>
-<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-<script src="bootstrap/js/popper.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+	</script>
+	<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="bootstrap/js/popper.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
