@@ -271,7 +271,7 @@
             <tbody>
               <tr th:each="item : ${appointmentList}">
                 <td th:text="${item.appointmentId}"></td>
-                <td><a th:href="@{/self_assesment_doctor/{id}(id=${item.patientID})}" th:text="${item.patientName}"></a>
+                <td><a th:href="@{/selfassessments_nurse/{id}(id=${item.patientID})}" th:text="${item.patientName}"></a>
                 </td>
                 <td th:text="${item.notes}"></td>
               </tr>

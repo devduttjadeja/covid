@@ -14,7 +14,7 @@
 
 <body>
 <header>
-	
+
 	<div id="pageHeader">
 		<div class="container-fluid">
 			<nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
@@ -36,7 +36,7 @@
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Registration</a>
-							
+
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="/user_reg">Patient registration</a>
 								<div class="dropdown-divider"></div>
@@ -44,11 +44,11 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
 							</div>
-						
+
 						</li>
-					
+
 					</ul>
-					
+
 					<div class="collapse navbar-collapse">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
@@ -61,64 +61,27 @@
 					</div>
 				</div>
 			</nav>
-		
+
 		</div>
 	</div>
 
 </header>
 <!-- End of Header-->
 
-<section class="login-section my-4 mx-5">
-	<div class="form">
-		<div class="container-fluid">
-			<div class="row no-gutters">
-				<div class="col-md-5 px-5 py-3">
-					<table style="height: 100%;">
-						<tbody>
-						<tr>
-							<td class="align-middle"><img src="images/login.png" class="img-fluid"
-														  width="100%" alt=""></td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="col-md-7 px-5 pt-5">
-					<h4>Sign into your account</h4>
-					
-					<form action="/login" method="post">
-						
-						<div class="form-row">
-							<div class="col-md-7">
-								<label for="Email">Email address</label>
-								<input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-							</div>
-						</div>
-						
-						<div class="form-row">
-							<div class="col-md-7">
-								<label for="Password">Password</label>
-								<input type="password" name="password" class="form-control" id="password" placeholder="Password">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-md-7 pt-2">
-								<button type="submit" class="btn1 mt-3 mb-5">Login</button>
-							</div>
-						</div>
-						<p style="color:green">Successfully Registered !!! </p>
-						<a href="forgot.html">Forgot Password</a>
-						<p>Don't have an account? <a href="/user_reg">Sign up here</a></p>
-					
-					</form>
-				</div>
-			</div>
+<section class="Account my-4 mx-5">
+	<div class="container pt-5 pb-5">
+		<div class="col-md-4">
+			<img class="img-fluid" src="images/register_success.png" width="200" alt="">
 		</div>
+		<h2> <b>Account Successfully Created</b></h2>
+		<p>Web page redirects after 5 seconds.</p>
+
 	</div>
 </section>
 
 
 <footer class="pagefooter">
-	
+
 	<div class="container-fluid bottom-footer pt-2">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -129,6 +92,11 @@
 
 </footer>
 
+<script>
+         setTimeout(function(){
+            window.location.href = '/login';
+         }, 5000);
+      </script>
 
 <!-- JavaScript -->
 <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>

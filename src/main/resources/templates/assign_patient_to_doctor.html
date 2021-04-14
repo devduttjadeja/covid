@@ -199,44 +199,77 @@
 
 </header>
 <!-- End of Header-->
+<div class="container p-1 p-sm-1">
+	<div class="row">
+		<div class="col-12">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goProfile()">My Profile</button></li>
+				<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goPatientList()">Patient List</button></li>
+				<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">Self Assessment results</button></li>
+				<li class="breadcrumb-item active" style="margin-top: 7px;">Assign to Doctor</li>
+			</ol>
+		</div>
+	</div>
+</div>
 
-<br>
-Assigning Patient <label th:text="${patient.patientName}"></label> to Doctor<br>
-Patient ID : <label th:text="${patient.patientID}"></label> <br>
-<br>
-<table id="doctorlist" class="table table-striped table-primary">
-	<thead>
-	<tr>
-		<th>Doctor ID</th>
-		<th>Doctor Resistration No.</th>
-		<th>Doctor Name</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr th:each="item : ${allDoctors}">
-		<td th:text="${item.doctorID}"></td>
-		<td th:text="${item.doctorRegistrationNumber}"></td>
-		<td th:text="${item.doctorName}"></td>
-	</tr>
-	</tbody>
-</table>
-<form action="/confirm_assignment_with_doctor">
-	<table>
-		<tr>
-			<td><label> Enter doctor I.D. :</label></td>
-			<td><input type="text"  name="DoctorID"  value="" /></td>
-		</tr>
-		<tr>
-			<td><label> Select appointment date : </label></td>
-			<td><input type="datetime-local" name="appDate"  /></td>
+<div class="container">
+
+	<h5 text-align="center"><b>Assigning  <label th:text="${patient.patientName}"></label> to Doctor </b></h5>
+	<div class="row align-items-center">
+
+		<div class="col-md-2">
+			<div class="d-flex flex-column align-items-center">
+				<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
+					 width="150">
+				<div class="mt-2">
+					<label th:text="${patient.patientName}"></label> <br>
+					<label id="patientID" th:text="${patient.patientID}"></label> <br>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-10 table-responsive">
+			<table id="doctorlist" class="table table-striped table-primary" width="1000px">
+				<thead>
+				<tr>
+					<th>Doctor ID</th>
+					<th>Doctor Resistration No.</th>
+					<th>Doctor Name</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="item : ${allDoctors}">
+					<td th:text="${item.doctorID}"></td>
+					<td th:text="${item.doctorRegistrationNumber}"></td>
+					<td th:text="${item.doctorName}"></td>
+				</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+		<form action="/confirm_assignment_with_doctor">
+			<table>
+				<tr>
+					<td><label> Enter doctor I.D. :</label></td>
+					<td><input type="text"  name="DoctorID"  value="" /></td>
+				</tr>
+				<tr>
+					<td><label> Select appointment date : </label></td>
+					<td><input type="datetime-local" name="appDate"  /></td>
 
 
 
-	<input class="btn" type="text" id="temp_patientID" name = "PatientID" th:value="${patient.patientID}"/>
-			<td><input type="submit"  value="Appoint" /></td>
-		</tr>
-	</table>
-</form>
+					<input class="btn" type="text" id="temp_patientID" name = "PatientID" th:value="${patient.patientID}"/>
+					<td><input type="submit"  value="Appoint" /></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+
+</div>
 
 
 <!-- Start of Footer-->
@@ -257,6 +290,18 @@ Patient ID : <label th:text="${patient.patientID}"></label> <br>
 <script>
 
 	document.getElementById("temp_patientID").style.visibility = "hidden";
+
+	function goBack() {
+			window.history.back();
+		}
+
+	function goPatientList() {
+			window.history.go(-2);
+		}
+
+	function goProfile() {
+			window.history.go(-3);
+		}
 
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
