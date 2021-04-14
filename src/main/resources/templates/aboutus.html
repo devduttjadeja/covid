@@ -12,7 +12,7 @@
 	<title>About us - Fight COVID</title>
 </head>
 
-<body>
+<body style="display: flex; min-height: 100vh; flex-direction: column;">
 	<header>
 
 		<div id="pageHeader">
@@ -37,12 +37,14 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
 									href="#">Registration</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="/user_reg">User registration</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="/staff_reg">Staff registration</a>
-								</div>
 
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/user_reg">Patient registration</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
+								</div>
 							</li>
 
 						</ul>
@@ -166,7 +168,44 @@
 
 
 
-	<footer>
+	<footer style="background-color: #6c7d8b;">
+		<div class="container top-footer p-md-3 p-1">
+			<div class="row">
+				<div class="col-md-3 pl-4 pr-4">
+					<h5>Social Media</h5>
+					<a style="color:silver;" href="https://www.facebook.com/coronavirus_info/"><i
+							class="fab fa-2x fa-facebook-square"></i></a>
+					<a style="color: silver;" href="https://twitter.com/infocovid_19?lang=en"><i
+							class="fab fa-2x fa-twitter-square"></i></a>
+					<a style="color: silver;" href="https://www.instagram.com/cdcgov/?hl=en"><i
+							class="fab fa-2x fa-instagram"></i></a>
+				</div>
+
+				<div class="col-md-3  pl-4 pr-4">
+					<h5>Important Links</h5>
+					<a href="#">Privacy Policy</a><br>
+					<a href="https://www.worldometers.info/coronavirus/">COVID cases across Globe </a><br>
+					<a
+						href="https://santemontreal.qc.ca/en/public/coronavirus-covid-19/situation-of-the-coronavirus-covid-19-in-montreal/">Montreal
+						Active-cases </a><br>
+				</div>
+
+				<div class="col-md-3  pl-4 pr-4">
+					<h5>Our Services</h5>
+					<a href="#">COVID Testing </a><br>
+					<a href="#">COVID Treatment</a><br>
+				</div>
+
+				<div class="col-md-3  pl-4 pr-4">
+					<h5>Contact Us</h5>
+					<a href="#"><i class="fas fa-phone"></i> +1 438-622-1234 </a><br>
+					<a href="#"><i class="fas fa-envelope"></i> help@fightcovid.com </a><br>
+
+
+				</div>
+			</div>
+		</div>
+
 		<div class="container-fluid bottom-footer pt-2">
 			<div class="row">
 				<div class="col-12 text-center">
