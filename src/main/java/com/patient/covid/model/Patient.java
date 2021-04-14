@@ -39,4 +39,8 @@ public class Patient {
     @Getter
     String email;
 
+    @Getter
+    @Setter
+    String registrationDate;
+
 }

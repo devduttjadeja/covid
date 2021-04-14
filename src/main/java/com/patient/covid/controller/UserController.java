@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class UserController {
@@ -61,37 +64,55 @@ public class UserController {
     }
 
     @GetMapping("/generate_report")
-    public String generateReport(@RequestParam("ryear") String year, @RequestParam("rmonth") String month, Model model){
-        List<PatientSelfAssesment> assesmentList = assessmentDao.findAll();
-        String m="";
-        if(month.endsWith("03"))
-            m="Mar";
-        else if(month.endsWith("04"))
-            m="Apr";
+    public String generateReport(@RequestParam("rDate") String rDate, @RequestParam("rWeek") String rWeek,
+                                 @RequestParam("rMonth") String rMonth, Model model){
+        List<Patient> patientList = patientDao.findAll();
+        List<Patient> filteredList = new ArrayList<Patient>();
+        if (rWeek == "" && rMonth==""){
+            // Date
+            for(int i=0;i< patientList.size();i++){
+                if(patientList.get(i).getRegistrationDate().equals(rDate))
+                    filteredList.add(patientList.get(i));
+            }
+            model.addAttribute("content","Number of patients registered on "+rDate);
 
-        List<PatientSelfAssesment> filteredList = assessmentFilter(assesmentList,year,m);
+        }else if (rDate=="" && rMonth==""){
+            // Week
+            for(int i=0;i<patientList.size();i++ ){
+                String regDate = patientList.get(i).getRegistrationDate();
+                String[] ymd = regDate.split("-");
+                LocalDate date = LocalDate.of(Integer.parseInt(ymd[0]), Integer.parseInt(ymd[1]), Integer.parseInt(ymd[2]));
+                int weekOfYear = date.get(WeekFields.of(Locale.getDefault()).weekOfYear())-1;
+                if (rWeek.endsWith(Integer.toString(weekOfYear))){
+                    filteredList.add(patientList.get(i));
+                }
+            }
+            model.addAttribute("content","Number of patients registered in Week "+rWeek);
 
-        model.addAttribute("assessmentList",filteredList);
+        }else if (rDate=="" && rWeek==""){
+            // Month
+            for(int i=0;i<patientList.size();i++ ){
+                String regDate = patientList.get(i).getRegistrationDate();
+                String[] ymd = regDate.split("-");
+                if (rMonth.endsWith(ymd[1])){
+                    filteredList.add(patientList.get(i));
+                }
+            }
+            model.addAttribute("content","Number of patients registered in the month "+rMonth);
+        }else{
+            model.addAttribute("content","Please choose one field only");
+        }
+
+
+        model.addAttribute("numPatients",filteredList.size());
         if(filteredList.size()>0)
             model.addAttribute("hasContent");
         return "get_report";
     }
 
-    private List<PatientSelfAssesment> assessmentFilter(List<PatientSelfAssesment> assesmentList, String year, String month) {
-        List<PatientSelfAssesment> filteredList = new ArrayList<PatientSelfAssesment>();
-        for(PatientSelfAssesment a : assesmentList){
-            if(a.getAssessmentDate().endsWith(year)){
-                if (month !=""){
-                    if(a.getAssessmentDate().contains(month)){
-                        filteredList.add(a);
-                    }
-                }else {
-                    filteredList.add(a);
-                }
-            }
-        }
-        return  filteredList;
-    }
+
+
+
 
 
 }

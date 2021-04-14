@@ -118,7 +118,7 @@ public class AppointmentController {
         Patient patient = patientDao.findById(patientID).orElse(null);
         Nurse nurse = nurseDao.findById(nurseID).orElse(null);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
         Date date = simpleDateFormat.parse(appDate);
 
         Appointment appointment = new Appointment();
@@ -205,7 +205,7 @@ public class AppointmentController {
         Patient patient = patientDao.findById(patientID).orElse(null);
         Doctor doctor = doctorDao.findById(doctorID).orElse(null);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
         Date date = simpleDateFormat.parse(appDate);
 
         Appointment appointment = new Appointment();

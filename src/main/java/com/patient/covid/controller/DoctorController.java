@@ -6,6 +6,8 @@ import com.patient.covid.model.Doctor;
 import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class DoctorController {
@@ -54,15 +57,27 @@ public class DoctorController {
     }
     
     @GetMapping("/removeDoctors")
+    @Transactional
     @ResponseBody
     public void removeDoctors(@RequestParam List<Long> doctorIDList) {
-        for (long doctor : doctorIDList)
+        for (long doctor : doctorIDList){
+
+            Doctor doc = doctorDao.findById(doctor).orElse(null);
+            userdao.deleteByEmail(doc.getEmail());
             doctorDao.deleteById(doctor);
+        }
+
     }
     
     @GetMapping("/doctors")
     @ResponseBody
     public List<Doctor> getAllDoctor() {
         return doctorDao.findAll();
+    }
+
+    @GetMapping("/doctor_list")
+    public String doctor_list(Model model){
+        model.addAttribute("doctorList",doctorDao.findAll());
+        return "doctor_list";
     }
 }

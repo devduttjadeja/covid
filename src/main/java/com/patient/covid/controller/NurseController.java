@@ -7,6 +7,7 @@ import com.patient.covid.model.Nurse;
 import com.patient.covid.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -66,5 +67,11 @@ public class NurseController {
     @ResponseBody
     public List<Nurse> getAllNurse() {
         return nurseDao.findAll();
+    }
+
+    @GetMapping("/nurse_list")
+    public String nurse_list(Model model){
+        model.addAttribute("nurseList",nurseDao.findAll());
+        return "nurse_list";
     }
 }

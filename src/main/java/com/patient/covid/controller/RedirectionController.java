@@ -1,6 +1,7 @@
 package com.patient.covid.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -65,6 +66,7 @@ public class RedirectionController {
     public String patient_list() {
         return "patient_list";
     }
+
 
     @GetMapping("/self_assessment_result")
     public String self_assessment_result() {

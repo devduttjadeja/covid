@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,12 @@
     <!--Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>Admin-Fight COVID</title>
+    <style>
+         .btn-trans{
+background-color: transparent;
+border-color: #ccc;
+  }
+    </style>
 </head>
 
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
@@ -71,16 +77,53 @@
 <!-- End of Header-->
 
     <div style="flex: 1; margin-left: 1%; margin-right: 1%;">
+        <section class="breadcrumbs-section">
+            <div class="container p-1 p-sm-1">
+                <div class="row">
+                    <div class="col-12 ">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button></li>
+                            <li class="breadcrumb-item active">Doctor List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <br>
         <h4>Doctor List</h4>
 
         <br>
 
         <div class="table-responsive">
-            <table id="doctors" class="table table-striped table-primary"></table>
+            <table id="self_assessment_result" class="table table-striped table-primary">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Registration No</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${doctorList}">
+                    <td th:text="${item.doctorID}"></td>
+                    <td th:text="${item.doctorName}"></td>
+                    <td th:text="${item.doctorRegistrationNumber}"></td>
+                    <td th:text="${item.phone}"></td>
+                    <td th:text="${item.address}"></td>
+                    <td th:text="${item.dateOfBirth}"></td>
+                    <td th:text="${item.email}"></td>
+
+                </tr>
+                </tbody>
+            </table>
         </div>
 
-        <button id="remove-doctors" type="button" class="btn btn-primary">Remove</button>
+
     </div>
 
     <footer style="background-color: #6c7d8b;">
@@ -132,83 +175,9 @@
 
     <!-- JavaScript -->
     <script>
-        // show doctors
-        getapi('/doctors').then(
-            registerDoctorButtonEvents
-        );
-
-        // Defining async function
-        async function getapi(url) {
-
-            // Storing response
-            const response = await fetch(url);
-
-            // Storing data in form of JSON
-            var data = await response.json();
-            console.log(data);
-            show(data);
-        }
-
-        // Function to define innerHTML for HTML table
-        function show(data) {
-            let tab =
-                `<tr>
-	<th></th>
-	<th>ID</th>
-	<th>Name</th>
-	<th>Registration No</th>
-	<th>Phone</th>
-	<th>Address</th>
-	<th>Date Of Birth</th>
-	<th>Email</th>
-	</tr>`;
-
-
-            // Loop to access all rows
-            for (let doctor of data) {
-                tab += `<tr>
-		<td><input class="checkbox" type="checkbox" name="doctor-checkbox" id="${doctor.doctorID}"></td>
-		<td>${doctor.doctorID} </td>
-		<td>${doctor.doctorName}</td>
-		<td>${doctor.doctorRegistrationNumber}</td>
-		<td>${doctor.phone}</td>
-		<td>${doctor.address}</td>
-		<td>${doctor.dateOfBirth}</td>
-		<td>${doctor.email}</td>
-		</tr>`;
-            }
-
-            // Setting innerHTML as tab variable
-            document.getElementById("doctors").innerHTML = tab;
-        }
-
-        async function removeDoctors(url) {
-            await fetch(url);
-        }
-
-        async function removeDoctorsAppointments(url) {
-            await fetch(url);
-        }
-
-        function registerDoctorButtonEvents() {
-            document.getElementById("remove-doctors").addEventListener("click", function () {
-                let selectedDoctorCheckboxes = document.querySelectorAll(`input[name="doctor-checkbox"]:checked`);
-
-                let requestString = '?doctorIDList=';
-
-                selectedDoctorCheckboxes.forEach((checkbox) => {
-                    requestString += checkbox.id + ',';
-                });
-
-                removeDoctorsAppointments('/removeDoctorsAppointments' + requestString.slice(0, requestString.length - 1))
-
-				removeDoctors('/removeDoctors' + requestString.slice(0, requestString.length - 1)).then(
-					function () {
-						getapi('/doctors')
-					}
-				);
-			});
-		}
+         function goBack() {
+  window.history.back();
+  }
 	</script>
 
     <!-- JavaScript -->

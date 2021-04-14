@@ -10,6 +10,12 @@
 	<!--Custom CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<title>Admin-Fight COVID</title>
+	<style>
+          .btn-trans{
+background-color: transparent;
+border-color: #ccc;
+  }
+    </style>
 </head>
 
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
@@ -69,6 +75,18 @@
 
 	</header>
 	<!-- End of Header-->
+	<section class="breadcrumbs-section">
+		<div class="container p-1 p-sm-1">
+			<div class="row">
+				<div class="col-12 ">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><button class="btn btn-trans" onclick="goBack()">My Profile</button></li>
+						<li class="breadcrumb-item active">Self-Assessment Results</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<div style="flex: 1; margin-left: 1%; margin-right: 1%;">
 		<br>
@@ -207,6 +225,9 @@
 				);
 			});
 		}
+		function goBack() {
+  window.history.back();
+  }
 	</script>
 
 	<!-- JavaScript -->

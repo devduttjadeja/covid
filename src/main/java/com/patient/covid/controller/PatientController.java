@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class PatientController {
@@ -66,6 +68,17 @@ public class PatientController {
         patient.setEmail(email);
         patient.setAddress(address);
         patient.setPhone(phone);
+        Calendar cal = Calendar. getInstance(Locale.getDefault());
+        cal.setTime(new Date());
+
+        String yy = String.valueOf(cal.get(Calendar.YEAR));
+        String mm = String.valueOf(cal.get(Calendar.MONTH)+1);
+        if(mm.length()==1){
+            mm="0"+mm;
+        }
+        String dd = String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
+
+        patient.setRegistrationDate(yy+"-"+mm+"-"+dd);
         patient.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse(dob));
         patientDao.save(patient);
 
@@ -74,6 +87,7 @@ public class PatientController {
         user.setPassword(password);
         user.setRole("PATIENT");
         userDao.save(user);
+
 
         return "reg_success";
     }
