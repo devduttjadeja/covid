@@ -100,6 +100,13 @@ public class AppointmentController {
         return "self_assessment_nurse_results";
     }
 
+    @GetMapping("/apppointment_ass_results_nurse/{patientID}")
+    public String getSelfAssresultfornurse(@PathVariable Long patientID, Model model) {
+        model.addAttribute("patient", patientDao.findById(patientID).orElse(null));
+        model.addAttribute("selfassessmentsOfPatient", patientSelfAssessmentDao.findByPatientID(patientID));
+        return "app_self_assessment_nurse_results";
+    }
+
     @GetMapping("/view_appointment_patient/{patientID}")
     public String view_appointment_patient(@PathVariable Long patientID, Model model) {
 
