@@ -755,9 +755,6 @@
     });
 
     document.getElementById("submit").addEventListener("click", function () {
-      console.log("AAA");
-      console.log(q1Answer);
-
       var q1, q2, q3, q4, q5, q6, q7, q8;
 
       if (q1Answer == 0) {
@@ -825,13 +822,10 @@
       } else {
         q8 = "Yes";
       }
-
-      console.log(q1, q2, q3, q4, q5, q6, q7, q8);
-
-
+	    
       $.post('/self_assessmentform', { q1: q1, q2: q2, q3: q3, q4: q4, q5: q5, q6: q6, q7: q7, q8: q8, patientID: patientID });
 
-      console.log("After php");
+      window.alert("Self-Assessment submitted successfully.");
 
       window.location.href = "/user/" + patientID;
 
