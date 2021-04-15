@@ -343,10 +343,12 @@
 
 		function confirmPatient() {
 			var appDate = document.getElementById("appointmentDate").value;
+			window.alert("Patient successfully assigned");
 			window.location.href = "/confirm_patient/" + patientID + "/" + nurseID + "/" + appDate;
 		}
 
 		document.getElementById("reject_patient").addEventListener("click", function () {
+			window.alert("Patient successfully rejected");
 			window.location.href = "/reject_patient_nurse/" + patientID + "/" + nurseID;
 		})
 
