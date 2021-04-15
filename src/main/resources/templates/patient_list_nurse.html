@@ -159,6 +159,7 @@
       background-color: transparent;
       border-color: #ccc;
     }
+    document.getElementById("admin").style.visibility = "hidden";
   </style>
 
   <title>Home - Fight COVID</title>
@@ -208,7 +209,7 @@
                   <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+                  <a class="nav-link" id="admin" href="/admin"><i class="fas fa-user"></i>Admin</a>
                 </li>
               </ul>
             </div>
@@ -308,7 +309,7 @@
       document.getElementById("patients").innerHTML = tab;
     }
 
-
+  document.getElementById("admin").style.visibility = "hidden";
 
   </script>
 

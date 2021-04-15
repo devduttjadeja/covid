@@ -244,7 +244,7 @@
                                     <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+                                    <a class="nav-link" id="admin" href="/admin"><i class="fas fa-user"></i>Admin</a>
                                 </li>
                             </ul>
                         </div>
@@ -327,6 +327,8 @@
         function goBack() {
             window.history.back();
         }
+
+        document.getElementById("admin").style.visibility = "hidden";
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

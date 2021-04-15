@@ -187,7 +187,7 @@
 								<a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+								<a class="nav-link" id="admin" href="/admin"><i class="fas fa-user"></i>Admin</a>
 							</li>
 						</ul>
 					</div>
@@ -290,6 +290,7 @@
 <script>
 
 	document.getElementById("temp_patientID").style.visibility = "hidden";
+	document.getElementById("admin").style.visibility = "hidden";
 
 	function goBack() {
 			window.history.back();
