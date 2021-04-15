@@ -7,284 +7,310 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.css">
-    
+
     <!--Custom CSS -->
     <style>
-    table, th, td {
-  		border-collapse: collapse;
-	}
-	table.center {
-  		margin-left: auto;
-  		margin-right: auto;
-	}
-	
-   .myrows{
-   border: 3px solid green;
-   padding: 5px;
-   }
-   .mycols{
-   border: 3px solid red;
-   }
-   .mycontainer{
-   background-color: aqua;
-   }
-   .container-fluid{
-   padding-left: 0;
-   padding-right: 0;
-   }
-   nav ul li a {
-   font-size: 1.1rem;
-   font-weight: 600;
-   }
-   /* footer */
-   .bottom-footer{
-   background-color: #2379c0;
-   }
-   .bottom-footer p{
-   color: white;
-   }
-   .pagefooter{
-   background-color: #6c7d8b;
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-   }
-   .top-footer p{
-   color: white;
-   }
-   .top-footer a{
-   color: white;
-   font-weight: 600;
-   }
-   .top-footer h3{
-   color: white;
-   }
-   .login-section{
-   padding: 0;
-   margin: 0;
-   box-sizing: border-box;
-   background: rgb(151, 223, 223);
-   }
-   .btn1{
-   border: none;
-   outline: none;
-   height: 50px;
-   width: 100%;
-   background-color: rgb(132, 243, 210);
-   border-radius: 4px;
-   font-weight: bold;
-   }
-   .btn1:hover{
-   background-color: white;
-   border: 1px solid;
-   color: black;
-   }
-   /*-- resister--*/
-   .register{
-   background-color: blanchedalmond;
-   margin-top: 2%;
-   padding: 5%;
-   }
-   .register-right{
-   background: #f8f9fa;
-   border-top-left-radius: 10% 50%;
-   border-bottom-left-radius: 10% 50%;
-   }
-   .register .register-form{
-   padding: 5%;
-   margin-top: 5%;
-   }
-   .btnRegister{
-   float: right;
-   margin-top: 10%;
-   border: none;
-   border-radius: 1.5rem;
-   padding: 2%;
-   background:rgb(240, 183, 99);
-   color: #fff;
-   font-weight: 600;
-   width: 50%;
-   cursor: pointer;
-   }
-   .register-staff{
-   background-color: rgb(168, 238, 141);
-   margin-top: 2%;
-   padding: 2%;
-   }
-   .register-staff-right{
-   background: #f8f9fa;
-   border-top-left-radius: 10% 50%;
-   border-bottom-left-radius: 10% 50%;
-   }
-   .register-staff .register-form{
-   padding: 5%;
-   margin-top: 3%;
-   }
-   .btnRegister{
-   float: right;
-   margin-top: 10%;
-   border: none;
-   border-radius: 1.5rem;
-   padding: 2%;
-   background:rgb(240, 183, 99);
-   color: #fff;
-   font-weight: 600;
-   width: 50%;
-   cursor: pointer;
-   }
-   .register-left{
-   text-align: center;
-   color: #fff;
-   margin-top: 4%;
-   }
-	</style>
-    
-    
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .myrows {
+            border: 3px solid green;
+            padding: 5px;
+        }
+
+        .mycols {
+            border: 3px solid red;
+        }
+
+        .mycontainer {
+            background-color: aqua;
+        }
+
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        nav ul li a {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* footer */
+        .bottom-footer {
+            background-color: #2379c0;
+        }
+
+        .bottom-footer p {
+            color: white;
+        }
+
+        .pagefooter {
+            background-color: #6c7d8b;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .top-footer p {
+            color: white;
+        }
+
+        .top-footer a {
+            color: white;
+            font-weight: 600;
+        }
+
+        .top-footer h3 {
+            color: white;
+        }
+
+        .login-section {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: rgb(151, 223, 223);
+        }
+
+        .btn1 {
+            border: none;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            background-color: rgb(132, 243, 210);
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn1:hover {
+            background-color: white;
+            border: 1px solid;
+            color: black;
+        }
+
+        /*-- resister--*/
+        .register {
+            background-color: blanchedalmond;
+            margin-top: 2%;
+            padding: 5%;
+        }
+
+        .register-right {
+            background: #f8f9fa;
+            border-top-left-radius: 10% 50%;
+            border-bottom-left-radius: 10% 50%;
+        }
+
+        .register .register-form {
+            padding: 5%;
+            margin-top: 5%;
+        }
+
+        .btnRegister {
+            float: right;
+            margin-top: 10%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: rgb(240, 183, 99);
+            color: #fff;
+            font-weight: 600;
+            width: 50%;
+            cursor: pointer;
+        }
+
+        .register-staff {
+            background-color: rgb(168, 238, 141);
+            margin-top: 2%;
+            padding: 2%;
+        }
+
+        .register-staff-right {
+            background: #f8f9fa;
+            border-top-left-radius: 10% 50%;
+            border-bottom-left-radius: 10% 50%;
+        }
+
+        .register-staff .register-form {
+            padding: 5%;
+            margin-top: 3%;
+        }
+
+        .btnRegister {
+            float: right;
+            margin-top: 10%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: rgb(240, 183, 99);
+            color: #fff;
+            font-weight: 600;
+            width: 50%;
+            cursor: pointer;
+        }
+
+        .register-left {
+            text-align: center;
+            color: #fff;
+            margin-top: 4%;
+        }
+    </style>
+
+
     <title>Admin-Fight COVID</title>
 </head>
 
-<body>
-<header>
-    
-    <div id="pageHeader">
-        <div class="container-fluid">
-            <nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
-                <a class="navbar-brand" href="">
-                    <img src="images/stopcovid.jpg" width="50px" alt="">
-                </a>
-                <button data-toggle="collapse" data-target="#navbarToggler" type="button"
+<body style="display: flex; min-height: 100vh; flex-direction: column;">
+    <header>
+
+        <div id="pageHeader">
+            <div class="container-fluid">
+                <nav class="navbar navbar-light navbar-expand-md" style="background-color:#68a8d3;">
+                    <a class="navbar-brand" href="">
+                        <img src="images/stopcovid.jpg" width="50px" alt="">
+                    </a>
+                    <button data-toggle="collapse" data-target="#navbarToggler" type="button"
                         class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/news">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/aboutus">About us</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                               href="#">Registration</a>
-                            
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/user_reg">Patient registration</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
-                            </div>
-                        
-                        </li>
-                    
-                    </ul>
-                    
-                    <div class="navbar-collapse">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
+                    <div class="collapse navbar-collapse" id="navbarToggler">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/index"><i class="fas fa-home"></i>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+                                <a class="nav-link" href="/news">News</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/aboutus">About us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                    href="#">Registration</a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/user_reg">Patient registration</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/doctor_reg">Doctor registration</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/nurse_reg">Nurse registration</a>
+                                </div>
+
+                            </li>
+
                         </ul>
+
+                        <div class="navbar-collapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin"><i class="fas fa-user"></i>Admin</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        
-        </div>
-    </div>
+                </nav>
 
-</header>
-<!-- End of Header-->
-
-<section class="admin-page my-4 mx-5">
-    
-    <div class="container-fluid">
-        
-        <div class="row">
-            
-            <div class="col-md-4 px-5 pt-3 doctor-page-right">
-                <img src="images/user.png" width="150" class="img-fluid" alt=""><br>
-                
-                <label>Name: Mr. Manager</label><br>
-                <label>Email: covid19admin@gmail.com</label><br>
-                <label>Mobile: 514 123 4567</label><br>
-                <br>
-                
-                <button onclick="location.href = '/patient_list';" class="btn btn-primary usrbutton" id="Patient-list">Patient-list</button> <br><br>
-                <button onclick="location.href = '/doctor_list';" class="btn btn-primary usrbutton" id="Doctor-list">Doctor-list</button> <br><br>
-                <button onclick="location.href ='/nurse_list';" class="btn btn-primary usrbutton" id="Nurse-list">Nurse-list</button> <br><br>
-                <button onclick="location.href = '/get_report';" class="btn btn-primary usrbutton" id="Get-Report">Get Report</button> <br><br>
-                
-                <div class="dropdown">
-                    <button class="btn btn-info dropdown-toggle usrbutton" type="button"
-                            id="dropdownMenuAddButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                        Add
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Add">
-                        <a class="dropdown-item" href="/user_reg">Patient</a>
-                        <a class="dropdown-item" href="/nurse_reg">Nurse</a>
-                        <a class="dropdown-item" href="/doctor_reg">Doctor</a>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div class="dropdown">
-                    <button class="btn btn-danger dropdown-toggle usrbutton" type="button"
-                            id="dropdownMenuRemoveButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                        Remove
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Add">
-                        <a class="dropdown-item" href="/delete_patient">Patient</a>
-                        <a class="dropdown-item" href="/delete_nurse">Nurse</a>
-                        <a class="dropdown-item" href="/delete_doc">Doctor</a>
-                    </div>
-                </div>
-            
-            </div>
-            <div class="col-md-8 px-5 pt-5 list" id="list">
-            
-            </div>
-            
-            <script>
-                    document.getElementById('Appointments').addEventListener("click", getText);
-
-                    function getText() {
-                        fetch('test.txt').then((res) => res.text())
-                            .then((data) => {
-                                document.getElementById('list').innerHTML = data;
-                            })
-                    }
-                </script>
-        </div>
-    
-    
-    
-    
-    </div>
-
-</section>
-
-<footer class="pagefooter">
-    <div class="container-fluid bottom-footer pt-2">
-        <div class="row">
-            <div class="col-12 text-center">
-                <p>Copyrights © 2021 - All rights reserved</p>
             </div>
         </div>
-    </div>
-</footer>
 
-<!-- JavaScript -->
-<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-<script src="bootstrap/js/popper.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+    </header>
+    <!-- End of Header-->
+
+    <div style="flex: 1;">
+        <section class="admin-page my-4 mx-5">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-4 px-5 pt-3 doctor-page-right">
+                        <img src="images/user.png" width="150" class="img-fluid" alt=""><br>
+
+                        <label>Name: Mr. Manager</label><br>
+                        <label>Email: covid19admin@gmail.com</label><br>
+                        <label>Mobile: 514 123 4567</label><br>
+                        <br>
+
+                        <button onclick="location.href = '/patient_list';" class="btn btn-primary usrbutton"
+                            id="Patient-list">Patient-list</button> <br><br>
+                        <button onclick="location.href = '/doctor_list';" class="btn btn-primary usrbutton"
+                            id="Doctor-list">Doctor-list</button> <br><br>
+                        <button onclick="location.href ='/nurse_list';" class="btn btn-primary usrbutton"
+                            id="Nurse-list">Nurse-list</button> <br><br>
+                        <button onclick="location.href = '/get_report';" class="btn btn-primary usrbutton"
+                            id="Get-Report">Get Report</button> <br><br>
+
+                        <div class="dropdown">
+                            <button class="btn btn-info dropdown-toggle usrbutton" type="button"
+                                id="dropdownMenuAddButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Add
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="Add">
+                                <a class="dropdown-item" href="/user_reg">Patient</a>
+                                <a class="dropdown-item" href="/nurse_reg">Nurse</a>
+                                <a class="dropdown-item" href="/doctor_reg">Doctor</a>
+                            </div>
+                        </div>
+
+                        <br>
+
+
+                        <button class="btn btn-danger" onclick="location.href = '/delete_patient';">Remove
+                            Patients</button>
+
+                        <br>
+                        <br>
+
+                        <button class="btn btn-danger" onclick="location.href = '/delete_nurse';">Remove
+                            Nurses</button>
+
+                        <br>
+                        <br>
+
+                        <button class="btn btn-danger" onclick="location.href = '/delete_doc';">Remove
+                            Doctors</button>
+                    </div>
+
+                    <script>
+                        document.getElementById('Appointments').addEventListener("click", getText);
+
+                        function getText() {
+                            fetch('test.txt').then((res) => res.text())
+                                .then((data) => {
+                                    document.getElementById('list').innerHTML = data;
+                                })
+                        }
+                    </script>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <div class="container-fluid bottom-footer pt-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Copyrights © 2021 - All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
